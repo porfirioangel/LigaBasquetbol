@@ -19,6 +19,9 @@
           <element id="library" level="project" name="Maven: com.vaadin.external.slf4j:vaadin-slf4j-jdk14:1.6.1" />
           <element id="library" level="project" name="Maven: com.vaadin:vaadin-client-compiled:8.0.4" />
           <element id="library" level="project" name="Maven: com.vaadin:vaadin-themes:8.0.4" />
+          <element id="library" level="project" name="Maven: org.mybatis:mybatis:3.4.2" />
+          <element id="library" level="project" name="Maven: mysql:mysql-connector-java:6.0.5" />
+          <element id="library" level="project" name="Maven: org.mybatis:mybatis-typehandlers-jsr310:1.0.2" />
         </element>
       </element>
       <element id="directory" name="META-INF">

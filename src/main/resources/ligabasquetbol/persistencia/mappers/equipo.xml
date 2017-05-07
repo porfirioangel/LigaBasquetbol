@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD iBatis Mapper 3.0 //EN"
+        "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+
+<mapper namespace="com.porfirioads.persistenciamybatis2.persistencia.modelos">
+    <select id="allEquipo" resultMap="resultMapEquipo">
+        SELECT id, nombre, url_logo FROM equipo;
+    </select>
+
+    <insert id="insertEquipo" parameterType="Equipo">
+        INSERT INTO equipo (nombre, url_logo) VALUES (#{nombre}, #{urlLogo});
+    </insert>
+
+    <update id="updateEquipo" parameterType="Equipo">
+        UPDATE equipo SET nombre=#{nombre}, url_logo=#{urlLogo} WHERE id=#{id};
+    </update>
+
+    <delete id="deleteEquipo">
+        DELETE FROM equipo WHERE id=#{id}
+    </delete>
+
+    <resultMap type="Equipo" id="resultMapEquipo">
+        <id property="id" column="id"/>
+        <result property="nombre" column="nombre"/>
+        <result property="urlLogo" column="url_logo"/>
+    </resultMap>
+</mapper>

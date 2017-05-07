@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE configuration PUBLIC "-//ibatis.apache.org//DTD Config 3.0//EN"
+        "http://ibatis.apache.org/dtd/ibatis-3-config.dtd">
+
+<configuration>
+    <typeAliases>
+        <typeAlias
+                type="com.icarus.ligabasquetbol.persistencia.modelos.Usuario"
+                alias="Usuario"/>
+        <typeAlias
+                type="com.icarus.ligabasquetbol.persistencia.modelos.Equipo"
+                alias="Equipo"/>
+        <typeAlias
+                type="com.icarus.ligabasquetbol.persistencia.modelos.Jugador"
+                alias="Jugador"/>
+        <typeAlias
+                type="com.icarus.ligabasquetbol.persistencia.modelos.Entrenador"
+                alias="Entrenador"/>
+    </typeAliases>
+
+    <environments default="mysql">
+        <environment id="mysql">
+            <transactionManager type="JDBC"/>
+            <dataSource type="UNPOOLED">
+                <property name="driver" value="com.mysql.cj.jdbc.Driver"/>
+                <property name="url"
+                          value="jdbc:mysql://127.0.0.1:3306/liga_basquet?useSSL=false&amp;serverTimezone=UTC"/>
+                <property name="username" value="root"/>
+                <property name="password" value="padsMysql"/>
+            </dataSource>
+        </environment>
+    </environments>
+
+    <mappers>
+        <mapper resource="com/icarus/ligabasquetbol/persistencia/mappers/usuario.xml"/>
+        <mapper resource="com/icarus/ligabasquetbol/persistencia/mappers/equipo.xml"/>
+        <mapper resource="com/icarus/ligabasquetbol/persistencia/mappers/jugador.xml"/>
+        <mapper resource="com/icarus/ligabasquetbol/persistencia/mappers/entrenador.xml"/>
+    </mappers>
+</configuration>

@@ -24,6 +24,8 @@ public class MyUI extends UI {
 
     @Override
     protected void init(VaadinRequest vaadinRequest) {
+        TestCruds.test();
+
         final VerticalLayout layout = new VerticalLayout();
         
         final TextField name = new TextField();
