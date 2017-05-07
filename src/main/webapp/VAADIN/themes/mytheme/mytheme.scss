@@ -32,7 +32,32 @@
 @import "../valo/valo.scss";
 
 @mixin mytheme {
+
   @include valo;
 
   // Insert your own theme rules here
+
+  .full-width {
+    width: 100%;
+  }
+
+  .v-button, input[type=text], input[type=password] {
+    height: 40px !important;
+  }
+
+  .v-button-link {
+    text-decoration: none;
+  }
+
+  .login-help div {
+    display: inline;
+  }
+
+  .login-help * {
+    font-size: 10pt;
+  }
+
+  .v-upload .v-button {
+    width: 100%!important;
+  }
 }
