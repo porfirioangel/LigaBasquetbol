@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7ac45095-ec35-40e7-bc2f-137cebf0257e" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" />
-    </list>
+    <list default="true" id="7ac45095-ec35-40e7-bc2f-137cebf0257e" name="Default" comment="" />
     <ignored path="LigaBasquetbol.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/out/" />
@@ -450,7 +448,7 @@
       <updated>1490794805184</updated>
       <workItem from="1490794814904" duration="995000" />
       <workItem from="1490795839120" duration="287000" />
-      <workItem from="1494169195646" duration="1047000" />
+      <workItem from="1494169195646" duration="1562000" />
     </task>
     <task id="LOCAL-00001" summary="Primer commit (Creación del proyecto)">
       <created>1490795890064</created>
@@ -463,10 +461,10 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2329000" />
+    <option name="totallyTimeSpent" value="2844000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1" y="0" width="1922" height="1050" extended-state="6" />
+    <frame x="-1" y="0" width="1922" height="1050" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
