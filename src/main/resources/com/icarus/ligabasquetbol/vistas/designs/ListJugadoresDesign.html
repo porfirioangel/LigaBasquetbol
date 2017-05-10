@@ -1,0 +1,110 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <meta name="design-properties" content="{&quot;RULERS_VISIBLE&quot;:true,&quot;GUIDELINES_VISIBLE&quot;:false,&quot;SNAP_TO_OBJECTS&quot;:true,&quot;SNAP_TO_GRID&quot;:true,&quot;SNAPPING_DISTANCE&quot;:10,&quot;JAVA_SOURCES_ROOT&quot;:&quot;src/main/java&quot;,&quot;THEME&quot;:&quot;mytheme&quot;}">
+  <meta name="vaadin-version" content="8.0.0">
+ </head>
+ <body>
+  <vaadin-vertical-layout style-name="crud-template" spacing="false" responsive size-full margin="false">
+   <vaadin-horizontal-layout style-name="top-bar" spacing="false" width-full height="50px">
+    <vaadin-horizontal-layout spacing="false" width-full :middle :expand>
+     <vaadin-text-field icon="fonticon://Vaadin-Icons/e805" style-name="small inline-icon search" placeholder="Search" width-full _id="search"></vaadin-text-field>
+    </vaadin-horizontal-layout>
+    <vaadin-button icon="fonticon://Vaadin-Icons/e801" style-name="borderless" plain-text _id="btnNuevo" :middle :right>
+      Agregar Nuevo 
+    </vaadin-button>
+   </vaadin-horizontal-layout>
+   <vaadin-css-layout style-name="content" size-full :expand>
+    <vaadin-css-layout style-name="list" size-full>
+     <vaadin-grid size-full _id="gridJugadores">
+      <table>
+       <colgroup>
+        <col column-id="project" sortable>
+        <col column-id="status" sortable>
+       </colgroup>
+       <thead>
+        <tr default>
+         <th plain-text column-ids="project">Project</th>
+         <th plain-text column-ids="status">Status</th>
+        </tr>
+       </thead>
+       <tbody>
+        <tr item="project1">
+         <td>Customer Project 1</td>
+         <td>OK</td>
+        </tr>
+        <tr item="project2">
+         <td>Customer Project 2</td>
+         <td>OK</td>
+        </tr>
+        <tr item="project3">
+         <td>Customer Project 3</td>
+         <td>OK</td>
+        </tr>
+        <tr item="project4">
+         <td>Customer Project 4</td>
+         <td>OK</td>
+        </tr>
+        <tr item="project5">
+         <td>Customer Project 5</td>
+         <td>OK</td>
+        </tr>
+        <tr item="project6">
+         <td>Customer Project 6</td>
+         <td>OK</td>
+        </tr>
+        <tr item="project7">
+         <td>Customer Project 7</td>
+         <td>OK</td>
+        </tr>
+        <tr item="project8">
+         <td>Customer Project 8</td>
+         <td>OK</td>
+        </tr>
+        <tr item="project9">
+         <td>Customer Project 9</td>
+         <td>OK</td>
+        </tr>
+       </tbody>
+      </table>
+     </vaadin-grid>
+    </vaadin-css-layout>
+    <vaadin-vertical-layout style-name="inspect" spacing="false" size-full margin="false">
+     <vaadin-css-layout style-name="edit" size-full :expand>
+      <vaadin-css-layout style-name="section half" width-full>
+       <vaadin-text-field caption="Nombre:" style-name="small" width-full _id="tfNombre"></vaadin-text-field>
+      </vaadin-css-layout>
+      <vaadin-css-layout style-name="section half" width-full>
+       <vaadin-text-field caption="Apellido paterno:" style-name="small" width-full _id="tfApPaterno"></vaadin-text-field>
+      </vaadin-css-layout>
+      <vaadin-css-layout style-name="section half" width-full>
+       <vaadin-text-field caption="Apelllido materno:" style-name="small" width-full _id="tfApMaterno"></vaadin-text-field>
+      </vaadin-css-layout>
+      <vaadin-css-layout style-name="section half" width-full>
+       <vaadin-text-field caption="Teléfono:" style-name="small" width-full _id="tfTelefono"></vaadin-text-field>
+      </vaadin-css-layout>
+      <vaadin-css-layout style-name="section half" width-full>
+       <vaadin-date-field caption="Fecha de nacimiento:" date-format="dd/MM/yyyy" width-full _id="dfFechaNacimiento"></vaadin-date-field>
+      </vaadin-css-layout>
+      <vaadin-css-layout style-name="section half" width-full _id="containerUploadFoto"></vaadin-css-layout>
+      <vaadin-css-layout style-name="section half" width-full>
+       <vaadin-image _id="imgFotoJugador"></vaadin-image>
+      </vaadin-css-layout>
+     </vaadin-css-layout>
+     <vaadin-horizontal-layout style-name="buttons border-top" width-full height="50px">
+      <vaadin-button style-name="small primary" plain-text _id="btnGuardar" :middle>
+        Insertar 
+      </vaadin-button>
+      <vaadin-button style-name="small" plain-text _id="btnCancelar" :middle :center>
+        Cancelar 
+      </vaadin-button>
+      <vaadin-button style-name="small danger" plain-text _id="btnEliminar" :middle :right :expand>
+        Eliminar 
+      </vaadin-button>
+     </vaadin-horizontal-layout>
+    </vaadin-vertical-layout>
+   </vaadin-css-layout>
+  </vaadin-vertical-layout>
+ </body>
+</html>
