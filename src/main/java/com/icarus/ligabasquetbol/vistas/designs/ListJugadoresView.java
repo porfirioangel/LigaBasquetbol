@@ -2,13 +2,17 @@ package com.icarus.ligabasquetbol.vistas.designs;
 
 import com.icarus.ligabasquetbol.persistencia.accesodatos.AccesoJugador;
 import com.icarus.ligabasquetbol.persistencia.modelos.Jugador;
+import com.icarus.ligabasquetbol.utils.ImageUploader;
 import com.icarus.ligabasquetbol.vistas.UploadFile;
 import com.vaadin.data.Binder;
 import com.vaadin.data.converter.LocalDateToDateConverter;
 import com.vaadin.event.selection.SelectionEvent;
 import com.vaadin.event.selection.SelectionListener;
+import com.vaadin.server.ExternalResource;
 import com.vaadin.server.FileResource;
+import com.vaadin.server.ThemeResource;
 import com.vaadin.ui.Button;
+import com.vaadin.ui.Grid;
 import com.vaadin.ui.Notification;
 import com.vaadin.ui.Upload;
 import com.vaadin.ui.renderers.HtmlRenderer;
@@ -26,6 +30,7 @@ public class ListJugadoresView extends ListJugadoresDesign {
     private Binder<Jugador> binder;
     private UploadFile uploadFoto;
     private boolean modoNuevo;
+    private final String BASE_URL = "http://localhost/uploads/";
 
     public ListJugadoresView() {
         accesoJugador = new AccesoJugador();
@@ -60,21 +65,22 @@ public class ListJugadoresView extends ListJugadoresDesign {
 
     private void loadJugadores() {
         List<Jugador> jugadores = accesoJugador.obtenerTodos();
+        gridJugadores.addStyleName("grid-jugadores");
         gridJugadores.setItems(jugadores);
         gridJugadores.removeAllColumns();
-//        gridJugadores.addColumn("urlFoto");
-//        gridJugadores.getColumn("urlFoto").setRenderer(new ImageRenderer());
-//        gridJugadores.setItems(jugadores);
-//
-        gridJugadores.addColumn(jugador -> "<img src=\""
-                        + ((Jugador) jugador).getUrlFoto() + "\">",
-                new HtmlRenderer()).setCaption("Foto");
-//
+
+        gridJugadores.addColumn(jugador ->
+                        "<img src=\"http://localhost/uploads/"
+                                + ((Jugador) jugador).getUrlFoto() + "\""
+                                + "style=\"height: 100px; width: 100px;\" />",
+                new HtmlRenderer()).setCaption("Fotografía");
+        ((Grid.Column) gridJugadores.getColumns().get(0)).setWidth(136);
+
         gridJugadores.addColumn(jugador -> "<span>"
                         + ((Jugador) jugador).getNombre() + " "
                         + ((Jugador) jugador).getApPaterno() + " "
                         + ((Jugador) jugador).getApMaterno() + "</span>",
-                new HtmlRenderer()).setCaption("Nombre del jugador");
+                new HtmlRenderer()).setCaption("Nombre");
         gridJugadores.setResponsive(true);
     }
 
@@ -125,6 +131,7 @@ public class ListJugadoresView extends ListJugadoresDesign {
             public void uploadFinished(Upload.FinishedEvent event) {
                 imgFotoJugador.setVisible(true);
                 imgFotoJugador.setSource(new FileResource(uploadFoto.getFile()));
+                new ImageUploader().uploadImage(uploadFoto.getFile());
             }
         });
     }
@@ -148,9 +155,10 @@ public class ListJugadoresView extends ListJugadoresDesign {
                         File foto = uploadFoto.getFile();
                         foto.renameTo(new File("foto_" + jugador.getTelefono()));
                         foto = new File("foto_" + jugador.getTelefono());
-                        jugador.setUrlFoto(foto.getAbsolutePath());
-                        Notification.show(jugador.getUrlFoto(), Notification
-                                .Type.TRAY_NOTIFICATION);
+                        jugador.setUrlFoto(foto.getName());
+                        String response = new ImageUploader().uploadImage(foto);
+                        Notification.show("Response: " + response, Notification
+                                .Type.HUMANIZED_MESSAGE);
 
                         if (modoNuevo) {
                             if (accesoJugador.insertar(jugador)) {

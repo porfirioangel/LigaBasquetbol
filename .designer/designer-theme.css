@@ -12718,3 +12718,12 @@ div.v-layout.v-horizontal.v-widget {
 .mytheme .v-upload .v-button {
 	width: 100% !important;
 }
+
+.mytheme .grid-jugadores .v-grid-cell {
+	height: 100px;
+}
+
+.mytheme .grid-jugadores .v-grid-cell > * {
+	line-height: 100px;
+	vertical-align: middle;
+}

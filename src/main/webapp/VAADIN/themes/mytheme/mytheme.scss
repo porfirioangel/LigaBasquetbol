@@ -60,4 +60,13 @@
   .v-upload .v-button {
     width: 100%!important;
   }
+
+  .grid-jugadores .v-grid-cell {
+    height: 100px;
+  }
+
+  .grid-jugadores .v-grid-cell > * {
+    line-height: 100px;
+    vertical-align: middle;
+  }
 }
