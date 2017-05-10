@@ -12727,3 +12727,9 @@ div.v-layout.v-horizontal.v-widget {
 	line-height: 100px;
 	vertical-align: middle;
 }
+
+.mytheme .grid-jugadores .v-grid-header, .mytheme .grid-jugadores .v-grid-header * {
+	height: 50px;
+	line-height: 50px;
+	vertical-align: middle;
+}

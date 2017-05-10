@@ -68,14 +68,12 @@ public class ListJugadoresView extends ListJugadoresDesign {
         gridJugadores.addStyleName("grid-jugadores");
         gridJugadores.setItems(jugadores);
         gridJugadores.removeAllColumns();
-
         gridJugadores.addColumn(jugador ->
                         "<img src=\"http://localhost/uploads/"
                                 + ((Jugador) jugador).getUrlFoto() + "\""
                                 + "style=\"height: 100px; width: 100px;\" />",
                 new HtmlRenderer()).setCaption("Fotografía");
         ((Grid.Column) gridJugadores.getColumns().get(0)).setWidth(136);
-
         gridJugadores.addColumn(jugador -> "<span>"
                         + ((Jugador) jugador).getNombre() + " "
                         + ((Jugador) jugador).getApPaterno() + " "
@@ -131,7 +129,6 @@ public class ListJugadoresView extends ListJugadoresDesign {
             public void uploadFinished(Upload.FinishedEvent event) {
                 imgFotoJugador.setVisible(true);
                 imgFotoJugador.setSource(new FileResource(uploadFoto.getFile()));
-                new ImageUploader().uploadImage(uploadFoto.getFile());
             }
         });
     }
@@ -153,8 +150,8 @@ public class ListJugadoresView extends ListJugadoresDesign {
                                 Notification.Type.ERROR_MESSAGE);
                     } else {
                         File foto = uploadFoto.getFile();
-                        foto.renameTo(new File("foto_" + jugador.getTelefono()));
-                        foto = new File("foto_" + jugador.getTelefono());
+                        foto.renameTo(new File("jug_" + jugador.getTelefono()));
+                        foto = new File("jug_" + jugador.getTelefono());
                         jugador.setUrlFoto(foto.getName());
                         String response = new ImageUploader().uploadImage(foto);
                         Notification.show("Response: " + response, Notification
