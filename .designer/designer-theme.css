@@ -12733,3 +12733,22 @@ div.v-layout.v-horizontal.v-widget {
 	line-height: 50px;
 	vertical-align: middle;
 }
+
+.mytheme .view-title {
+	font-weight: bold;
+}
+
+.mytheme .btn-dash-active {
+	background-color: #FAFAFA !important;
+	color: #5F5F5F !important;
+	border-radius: 0;
+}
+
+.mytheme .btn-dash-active .v-icon {
+	color: #5F5F5F !important;
+}
+
+.mytheme .img-logo {
+	width: 90%;
+	margin: 5%;
+}

@@ -8,7 +8,7 @@
         SELECT j.id, j.nombre, j.ap_paterno, j.ap_materno, j.telefono,
         j.fecha_nacimiento, j.url_foto, e.id as equipo_id, e.nombre as
         nombre_equipo, e.url_logo FROM jugador j LEFT JOIN equipo e ON
-        j.equipo_id = e.id;
+        j.equipo_id = e.id ORDER BY j.nombre, j.ap_paterno, j.ap_materno;
     </select>
 
     <insert id="insertJugador" parameterType="Jugador">

@@ -107,23 +107,6 @@ public class ListJugadoresView extends ListJugadoresDesign {
         gridJugadores.setResponsive(true);
     }
 
-    private void addGridJugadoresSelectionListener() {
-        gridJugadores.addSelectionListener(new SelectionListener() {
-            @Override
-            public void selectionChange(SelectionEvent event) {
-                if (!event.getAllSelectedItems().isEmpty()) {
-                    jugador = (Jugador) event.getFirstSelectedItem().get();
-                    binder.setBean(jugador);
-                    modoNuevo = false;
-                    btnGuardar.setCaption("Actualizar");
-                    btnEliminar.setEnabled(true);
-                } else {
-                    reiniciarFormulario();
-                }
-            }
-        });
-    }
-
     private void bindJugador() {
         binder.setBean(jugador);
         binder.forField(tfNombre).asRequired("El nombre es obligatorio")
@@ -144,6 +127,23 @@ public class ListJugadoresView extends ListJugadoresDesign {
         binder.forField(dfFechaNacimiento).asRequired("La fecha es obligatoria")
                 .withConverter(new LocalDateToDateConverter())
                 .bind("fechaNacimiento");
+    }
+
+    private void addGridJugadoresSelectionListener() {
+        gridJugadores.addSelectionListener(new SelectionListener() {
+            @Override
+            public void selectionChange(SelectionEvent event) {
+                if (!event.getAllSelectedItems().isEmpty()) {
+                    jugador = (Jugador) event.getFirstSelectedItem().get();
+                    binder.setBean(jugador);
+                    modoNuevo = false;
+                    btnGuardar.setCaption("Actualizar");
+                    btnEliminar.setEnabled(true);
+                } else {
+                    reiniciarFormulario();
+                }
+            }
+        });
     }
 
     private void addUploadFotoClickListener() {
