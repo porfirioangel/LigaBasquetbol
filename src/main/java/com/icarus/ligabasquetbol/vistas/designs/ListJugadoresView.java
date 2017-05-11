@@ -8,59 +8,84 @@ import com.vaadin.data.Binder;
 import com.vaadin.data.converter.LocalDateToDateConverter;
 import com.vaadin.event.selection.SelectionEvent;
 import com.vaadin.event.selection.SelectionListener;
-import com.vaadin.server.ExternalResource;
 import com.vaadin.server.FileResource;
-import com.vaadin.server.ThemeResource;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.Grid;
 import com.vaadin.ui.Notification;
 import com.vaadin.ui.Upload;
 import com.vaadin.ui.renderers.HtmlRenderer;
-import com.vaadin.ui.renderers.ImageRenderer;
+import de.steinwedel.messagebox.ButtonOption;
+import de.steinwedel.messagebox.MessageBox;
 
 import java.io.File;
 import java.util.List;
 
-/**
- * Created by porfirio on 5/10/17.
- */
 public class ListJugadoresView extends ListJugadoresDesign {
     private AccesoJugador accesoJugador;
-    private Jugador jugador;
     private Binder<Jugador> binder;
     private UploadFile uploadFoto;
+    private Jugador jugador;
     private boolean modoNuevo;
-    private final String BASE_URL = "http://localhost/uploads/";
+    private File foto;
 
     public ListJugadoresView() {
         accesoJugador = new AccesoJugador();
         binder = new Binder<>(Jugador.class);
         modoNuevo = true;
         jugador = new Jugador();
-        imgFotoJugador.setVisible(false);
-        imgFotoJugador.addStyleName("full-width");
-        uploadFoto = new UploadFile("Foto de perfil:");
-        containerUploadFoto.addComponent(uploadFoto);
-        uploadFoto.addStyleName("full-width");
-        uploadFoto.setButtonCaption("Seleccionar foto");
+        crearComponentesUI();
         loadJugadores();
-        addGridJugadoresSelectionListener();
-        bindJugador();
-        addUploadFotoClickListener();
-        addBtnNuevoClickListener();
-        addBtnGuardarClickListener();
     }
 
-    private void addBtnNuevoClickListener() {
-        btnNuevo.addClickListener(new Button.ClickListener() {
-            @Override
-            public void buttonClick(Button.ClickEvent event) {
-                modoNuevo = true;
-                refreshBtnGuardarCaption();
-                gridJugadores.deselectAll();
-                tfNombre.focus();
-            }
+    private void crearComponentesUI() {
+        imgFotoJugador.setVisible(false);
+        imgFotoJugador.addStyleName("full-width");
+        btnEliminar.setEnabled(false);
+        bindJugador();
+        addGridJugadoresSelectionListener();
+        addBtnNuevoClickListener();
+        addBtnGuardarClickListener();
+        addBtnCancelarClickListener();
+        addBtnEliminarClickListener();
+        reiniciarFormulario();
+    }
+
+    private void addBtnEliminarClickListener() {
+        btnEliminar.addClickListener((Button.ClickListener) event -> {
+            MessageBox.createError()
+                    .withCaption("Confirmación")
+                    .withMessage("¿Seguro que deseas eliminar al usuario?")
+                    .withAbortButton(ButtonOption.caption("Cancelar"))
+                    .withIgnoreButton(
+                            () -> {
+                                accesoJugador.eliminar(jugador);
+                                reiniciarFormulario();
+                                gridJugadores.setItems(accesoJugador
+                                        .obtenerTodos());
+                            }, ButtonOption.caption("Aceptar"),
+                            ButtonOption.focus(), ButtonOption.icon(null)
+                    )
+                    .open();
+
         });
+    }
+
+    private void reiniciarFormulario() {
+        jugador = new Jugador();
+        modoNuevo = true;
+        foto = null;
+        gridJugadores.deselectAll();
+        binder.setBean(jugador);
+        btnGuardar.setCaption("Insertar");
+        btnEliminar.setEnabled(false);
+        uploadFoto = new UploadFile("Foto de perfil:");
+        uploadFoto.addStyleName("full-width");
+        uploadFoto.setButtonCaption("Seleccionar foto");
+        addUploadFotoClickListener();
+        containerUploadFoto.removeAllComponents();
+        containerUploadFoto.addComponent(uploadFoto);
+        imgFotoJugador.setSource(null);
+        imgFotoJugador.setVisible(false);
     }
 
     private void loadJugadores() {
@@ -90,12 +115,10 @@ public class ListJugadoresView extends ListJugadoresDesign {
                     jugador = (Jugador) event.getFirstSelectedItem().get();
                     binder.setBean(jugador);
                     modoNuevo = false;
-                    refreshBtnGuardarCaption();
+                    btnGuardar.setCaption("Actualizar");
+                    btnEliminar.setEnabled(true);
                 } else {
-                    jugador = new Jugador();
-                    binder.setBean(jugador);
-                    modoNuevo = true;
-                    refreshBtnGuardarCaption();
+                    reiniciarFormulario();
                 }
             }
         });
@@ -128,16 +151,10 @@ public class ListJugadoresView extends ListJugadoresDesign {
             @Override
             public void uploadFinished(Upload.FinishedEvent event) {
                 imgFotoJugador.setVisible(true);
-                imgFotoJugador.setSource(new FileResource(uploadFoto.getFile()));
+                foto = uploadFoto.getFile();
+                imgFotoJugador.setSource(new FileResource(foto));
             }
         });
-    }
-
-    private void refreshBtnGuardarCaption() {
-        if (modoNuevo)
-            btnGuardar.setCaption("Insertar");
-        else
-            btnGuardar.setCaption("Actualizar");
     }
 
     private void addBtnGuardarClickListener() {
@@ -145,23 +162,22 @@ public class ListJugadoresView extends ListJugadoresDesign {
             @Override
             public void buttonClick(Button.ClickEvent event) {
                 if (binder.validate().isOk()) {
-                    if (imgFotoJugador.getSource() == null) {
+                    if (modoNuevo && foto == null) {
                         Notification.show("Selecciona foto del jugador",
                                 Notification.Type.ERROR_MESSAGE);
                     } else {
-                        File foto = uploadFoto.getFile();
-                        foto.renameTo(new File("jug_" + jugador.getTelefono()));
-                        foto = new File("jug_" + jugador.getTelefono());
-                        jugador.setUrlFoto(foto.getName());
-                        String response = new ImageUploader().uploadImage(foto);
-                        Notification.show("Response: " + response, Notification
-                                .Type.HUMANIZED_MESSAGE);
-
+                        if (foto != null) {
+                            foto.renameTo(new File("jug_" + jugador.getTelefono()));
+                            foto = new File("jug_" + jugador.getTelefono());
+                            jugador.setUrlFoto(foto.getName());
+                            String response = new ImageUploader().uploadImage(foto);
+                        }
                         if (modoNuevo) {
                             if (accesoJugador.insertar(jugador)) {
                                 Notification.show("Jugador insertado " +
                                                 "correctamente",
                                         Notification.Type.TRAY_NOTIFICATION);
+                                reiniciarFormulario();
                             } else {
                                 Notification.show("Error al insertar usuario",
                                         Notification.Type.ERROR_MESSAGE);
@@ -171,6 +187,7 @@ public class ListJugadoresView extends ListJugadoresDesign {
                                 Notification.show("Jugador actualizado " +
                                                 "correctamente",
                                         Notification.Type.TRAY_NOTIFICATION);
+                                reiniciarFormulario();
                             } else {
                                 Notification.show("Error al actualizar usuario",
                                         Notification.Type.ERROR_MESSAGE);
@@ -182,6 +199,25 @@ public class ListJugadoresView extends ListJugadoresDesign {
                     Notification.show("Verifica tus datos", Notification.Type
                             .ERROR_MESSAGE);
                 }
+            }
+        });
+    }
+
+    private void addBtnCancelarClickListener() {
+        btnCancelar.addClickListener(new Button.ClickListener() {
+            @Override
+            public void buttonClick(Button.ClickEvent event) {
+                reiniciarFormulario();
+            }
+        });
+    }
+
+    private void addBtnNuevoClickListener() {
+        btnNuevo.addClickListener(new Button.ClickListener() {
+            @Override
+            public void buttonClick(Button.ClickEvent event) {
+                reiniciarFormulario();
+                tfNombre.focus();
             }
         });
     }
