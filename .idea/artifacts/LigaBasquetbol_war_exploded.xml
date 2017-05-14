@@ -23,6 +23,8 @@
           <element id="library" level="project" name="Maven: mysql:mysql-connector-java:6.0.5" />
           <element id="library" level="project" name="Maven: org.mybatis:mybatis-typehandlers-jsr310:1.0.2" />
           <element id="library" level="project" name="Maven: de.steinwedel.vaadin.addon:messagebox:4.0.21" />
+          <element id="library" level="project" name="Maven: javax.mail:mail:1.4.7" />
+          <element id="library" level="project" name="Maven: javax.activation:activation:1.1" />
         </element>
       </element>
       <element id="directory" name="META-INF">

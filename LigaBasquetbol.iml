@@ -41,5 +41,7 @@
     <orderEntry type="library" name="Maven: mysql:mysql-connector-java:6.0.5" level="project" />
     <orderEntry type="library" name="Maven: org.mybatis:mybatis-typehandlers-jsr310:1.0.2" level="project" />
     <orderEntry type="library" name="Maven: de.steinwedel.vaadin.addon:messagebox:4.0.21" level="project" />
+    <orderEntry type="library" name="Maven: javax.mail:mail:1.4.7" level="project" />
+    <orderEntry type="library" name="Maven: javax.activation:activation:1.1" level="project" />
   </component>
 </module>

@@ -1,0 +1,18 @@
+<div style="background-color: lightskyblue; padding: 20px; color: black;
+font-family: 'Helvetica Neue', sans-serif">
+    <h1>Liga Jerezana de Basquetbol</h1>
+    <p style="text-align: justify">
+        Estimado <strong>{{ usuario }}</strong>, tu cuenta ha sido creada
+        satisfactoriamente, pero es necesario que confirmes tu
+        dirección de email, para hacerlo por favor haz click en el
+        botón que aparece abajo.
+    </p>
+    <div style="text-align: center">
+        <a href="http://localhost:8000?confirmacion={{ codigoConfirmacion }}"
+           style="padding: 10px; background-color: black; color: white;
+        text-decoration: none; display: inline-block; border-radius: 10px;">
+            Confirmar email
+        </a>
+    </div>
+
+</div>
