@@ -42,9 +42,8 @@ public class AccesoJugador {
         boolean ok = false;
         SqlSession sesion = ConfigDb.getSqlMapper().openSession();
         try {
-            sesion.insert("updateJugador", jugador);
+            ok = sesion.update("updateJugador", jugador) > 0;
             sesion.commit();
-            ok = true;
         } catch (Exception e) {
             Notification.show("Error al actualizar el jugador ",
                     e.getCause().getMessage(), Notification.Type.ERROR_MESSAGE);

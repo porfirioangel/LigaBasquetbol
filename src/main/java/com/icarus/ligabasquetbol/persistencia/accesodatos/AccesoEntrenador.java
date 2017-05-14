@@ -60,9 +60,8 @@ public class AccesoEntrenador {
         boolean ok = false;
         SqlSession sesion = ConfigDb.getSqlMapper().openSession();
         try {
-            sesion.insert("updateEntrenador", entrenador);
+            ok = sesion.update("updateEntrenador", entrenador) > 0;
             sesion.commit();
-            ok = true;
         } catch (Exception e) {
             Notification.show("Error al actualizar el entrenador ",
                     e.getCause().getMessage(), Notification.Type.ERROR_MESSAGE);

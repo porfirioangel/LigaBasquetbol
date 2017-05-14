@@ -27,11 +27,11 @@
         VALUES  (#{email}, #{password}, #{tipoUsuario}, #{claveVerificacion});
     </insert>
 
-    <insert id="updateUsuario" parameterType="Usuario">
+    <update id="updateUsuario" parameterType="Usuario">
         UPDATE usuario SET email=#{email}, password=#{password},
         tipo_usuario=#{tipoUsuario}, clave_verificacion=#{claveVerificacion}
         WHERE id=#{id};
-    </insert>
+    </update>
 
     <delete id="deleteUsuario">
         DELETE FROM usuario WHERE id=#{id}
@@ -42,6 +42,11 @@
         FROM usuario WHERE email=#{email} AND password=#{password} AND
         clave_verificacion is NULL;
     </select>
+
+    <update id="confirmarCuenta" parameterType="string">
+        UPDATE usuario SET clave_verificacion=NULL
+        WHERE clave_verificacion=#{claveVerificacion};
+    </update>
 
     <resultMap type="Usuario" id="resultMapUsuario">
         <id property="id" column="id"/>

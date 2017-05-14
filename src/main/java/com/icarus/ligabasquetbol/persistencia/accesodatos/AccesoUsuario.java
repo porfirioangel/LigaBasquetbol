@@ -6,7 +6,6 @@ import com.icarus.ligabasquetbol.utils.GeneradorClaves;
 import com.vaadin.ui.Notification;
 import org.apache.ibatis.session.SqlSession;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class AccesoUsuario {
@@ -44,9 +43,8 @@ public class AccesoUsuario {
         boolean ok = false;
         SqlSession sesion = ConfigDb.getSqlMapper().openSession();
         try {
-            sesion.insert("updateUsuario", usuario);
+            ok = sesion.update("updateUsuario", usuario) > 0;
             sesion.commit();
-            ok = true;
         } catch (Exception e) {
             Notification.show("Error al actualizar el usuario ",
                     e.getCause().getMessage(), Notification.Type.ERROR_MESSAGE);
@@ -125,5 +123,20 @@ public class AccesoUsuario {
             sesion.close();
         }
         return clave;
+    }
+
+    public boolean confirmarCuenta(String claveVerificacion) {
+        boolean ok = false;
+        SqlSession sesion = ConfigDb.getSqlMapper().openSession();
+        try {
+            ok = sesion.update("confirmarCuenta", claveVerificacion) > 0;
+            sesion.commit();
+        } catch (Exception e) {
+            Notification.show("Error al confirmar la cuenta ",
+                    e.getCause().getMessage(), Notification.Type.ERROR_MESSAGE);
+        } finally {
+            sesion.close();
+        }
+        return ok;
     }
 }

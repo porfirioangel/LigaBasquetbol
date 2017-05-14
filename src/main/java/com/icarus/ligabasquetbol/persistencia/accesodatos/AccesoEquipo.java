@@ -42,9 +42,8 @@ public class AccesoEquipo {
         boolean ok = false;
         SqlSession sesion = ConfigDb.getSqlMapper().openSession();
         try {
-            sesion.insert("updateEquipo", equipo);
+            ok = sesion.update("updateEquipo", equipo) > 0;
             sesion.commit();
-            ok = true;
         } catch (Exception e) {
             Notification.show("Error al actualizar el equipo ",
                     e.getCause().getMessage(), Notification.Type.ERROR_MESSAGE);

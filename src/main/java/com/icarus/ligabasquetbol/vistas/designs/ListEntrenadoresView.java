@@ -1,5 +1,6 @@
 package com.icarus.ligabasquetbol.vistas.designs;
 
+import com.icarus.ligabasquetbol.conectividad.Email;
 import com.icarus.ligabasquetbol.conectividad.ImageUploader;
 import com.icarus.ligabasquetbol.persistencia.accesodatos.AccesoEntrenador;
 import com.icarus.ligabasquetbol.persistencia.accesodatos.AccesoUsuario;
@@ -194,6 +195,11 @@ public class ListEntrenadoresView extends ListEntrenadoresDesign {
                             Notification.show("Entrenador insertado " +
                                             "correctamente",
                                     Notification.Type.TRAY_NOTIFICATION);
+                            usuario = new AccesoUsuario().getUsuarioByEmail
+                                    (usuario.getEmail());
+                            new Email().enviarEmailConfirmacion(usuario
+                                            .getEmail(), entrenador.getNombre(),
+                                    usuario.getClaveVerificacion());
                             reiniciarFormulario();
                         } else {
                             Notification.show("Error al insertar " +
