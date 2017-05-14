@@ -9,6 +9,12 @@ import org.apache.ibatis.session.SqlSession;
 import java.util.List;
 
 public class AccesoEntrenador {
+    private AccesoUsuario accesoUsuario;
+
+    public AccesoEntrenador() {
+        accesoUsuario = new AccesoUsuario();
+    }
+
     public List<Entrenador> obtenerTodos() {
         List<Entrenador> entrenadores = null;
         SqlSession sesion = ConfigDb.getSqlMapper().openSession();
@@ -25,13 +31,13 @@ public class AccesoEntrenador {
 
     public boolean insertar(Entrenador entrenador) {
         boolean ok = false;
-        AccesoUsuario accesoUsuario = new AccesoUsuario();
         SqlSession sesion = ConfigDb.getSqlMapper().openSession();
         try {
             Usuario usuario = entrenador.getUsuario();
             if (usuario != null) {
                 usuario.setPassword("password");
-                usuario.setClaveVerificacion(accesoUsuario.obtenerNuevaVerificacion());
+                usuario.setClaveVerificacion(accesoUsuario
+                        .obtenerNuevaVerificacion());
                 usuario.setTipoUsuario("entrenador");
                 accesoUsuario.insertar(usuario);
                 usuario = accesoUsuario.getUsuarioByEmail(usuario.getEmail());
@@ -72,6 +78,8 @@ public class AccesoEntrenador {
         try {
             deletes = sesion.delete("deleteEntrenador", entrenador);
             sesion.commit();
+            if (deletes > 0)
+                accesoUsuario.eliminar(entrenador.getUsuario());
         } catch (Exception e) {
             Notification.show("Error al eliminar el entrenador ",
                     e.getCause().getMessage(), Notification.Type.ERROR_MESSAGE);

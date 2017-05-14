@@ -58,22 +58,21 @@ public class ListEntrenadoresView extends ListEntrenadoresDesign {
     }
 
     private void addBtnEliminarClickListener() {
-        btnEliminar.addClickListener((Button.ClickListener) event -> {
-            MessageBox.createError()
-                    .withCaption("Confirmación")
-                    .withMessage("¿Seguro que deseas eliminar al entrenador?")
-                    .withAbortButton(ButtonOption.caption("Cancelar"))
-                    .withIgnoreButton(
-                            () -> {
-                                accesoEntrenador.eliminar(entrenador);
-                                reiniciarFormulario();
-                                gridEntrenadores.setItems(accesoEntrenador
-                                        .obtenerTodos());
-                            }, ButtonOption.caption("Aceptar"),
-                            ButtonOption.focus(), ButtonOption.icon(null)
-                    )
-                    .open();
-        });
+        btnEliminar.addClickListener((Button.ClickListener) event ->
+                MessageBox.createError()
+                        .withCaption("Confirmación")
+                        .withMessage("¿Seguro que deseas eliminar al entrenador?")
+                        .withAbortButton(ButtonOption.caption("Cancelar"))
+                        .withIgnoreButton(
+                                () -> {
+                                    accesoEntrenador.eliminar(entrenador);
+                                    reiniciarFormulario();
+                                    gridEntrenadores.setItems(accesoEntrenador
+                                            .obtenerTodos());
+                                }, ButtonOption.caption("Aceptar"),
+                                ButtonOption.focus(), ButtonOption.icon(null)
+                        )
+                        .open());
     }
 
     private void reiniciarFormulario() {
@@ -94,6 +93,7 @@ public class ListEntrenadoresView extends ListEntrenadoresDesign {
         containerUploadFoto.addComponent(uploadFoto);
         imgFotoEntrenador.setSource(null);
         imgFotoEntrenador.setVisible(false);
+        tfEmail.setEnabled(true);
     }
 
     private void loadEntrenadores() {
@@ -148,32 +148,27 @@ public class ListEntrenadoresView extends ListEntrenadoresDesign {
     }
 
     private void addGridEntrenadoresSelectionListener() {
-        gridEntrenadores.addSelectionListener(new SelectionListener() {
-            @Override
-            public void selectionChange(SelectionEvent event) {
-                if (!event.getAllSelectedItems().isEmpty()) {
-                    entrenador = (Entrenador) event.getFirstSelectedItem().get();
-                    entrenadorBinder.setBean(entrenador);
-                    usuario = entrenador.getUsuario();
-                    usuarioBinder.setBean(usuario);
-                    modoNuevo = false;
-                    btnGuardar.setCaption("Actualizar");
-                    btnEliminar.setEnabled(true);
-                } else {
-                    reiniciarFormulario();
-                }
+        gridEntrenadores.addSelectionListener((SelectionListener) event -> {
+            if (!event.getAllSelectedItems().isEmpty()) {
+                entrenador = (Entrenador) event.getFirstSelectedItem().get();
+                entrenadorBinder.setBean(entrenador);
+                usuario = entrenador.getUsuario();
+                usuarioBinder.setBean(usuario);
+                modoNuevo = false;
+                btnGuardar.setCaption("Actualizar");
+                btnEliminar.setEnabled(true);
+                tfEmail.setEnabled(false);
+            } else {
+                reiniciarFormulario();
             }
         });
     }
 
     private void addUploadFotoClickListener() {
-        uploadFoto.addFinishedListener(new Upload.FinishedListener() {
-            @Override
-            public void uploadFinished(Upload.FinishedEvent event) {
-                imgFotoEntrenador.setVisible(true);
-                foto = uploadFoto.getFile();
-                imgFotoEntrenador.setSource(new FileResource(foto));
-            }
+        uploadFoto.addFinishedListener((Upload.FinishedListener) event -> {
+            imgFotoEntrenador.setVisible(true);
+            foto = uploadFoto.getFile();
+            imgFotoEntrenador.setSource(new FileResource(foto));
         });
     }
 
