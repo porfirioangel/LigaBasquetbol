@@ -9,6 +9,19 @@
         FROM usuario;
     </select>
 
+    <select id="getUsuarioByEmail" resultMap="resultMapUsuario"
+            parameterType="Usuario">
+        SELECT id, email, password, tipo_usuario, clave_verificacion
+        FROM usuario WHERE email=#{email}
+    </select>
+
+    <select id="getUsuarioByClaveVerificacion" resultMap="resultMapUsuario"
+            parameterType="Usuario">
+        SELECT id, email, password, tipo_usuario, clave_verificacion
+        FROM usuario WHERE clave_verificacion=#{claveVerificacion}
+    </select>
+
+
     <insert id="insertUsuario" parameterType="Usuario">
         INSERT INTO usuario (email, password, tipo_usuario, clave_verificacion)
         VALUES  (#{email}, #{password}, #{tipoUsuario}, #{claveVerificacion});

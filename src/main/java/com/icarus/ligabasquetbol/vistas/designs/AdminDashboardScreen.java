@@ -21,6 +21,7 @@ public class AdminDashboardScreen extends AdminDashboardDesign {
             btnPartidos.removeStyleName("btn-dash-active");
             lblTituloVentana.setValue("Entrenadores");
             contentPanel.removeAllComponents();
+            contentPanel.addComponent(new ListEntrenadoresView());
         });
         btnPartidos.addClickListener((Button.ClickListener) event -> {
             btnJugadores.removeStyleName("btn-dash-active");

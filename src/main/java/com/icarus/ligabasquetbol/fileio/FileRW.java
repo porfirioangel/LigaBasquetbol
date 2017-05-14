@@ -1,7 +1,5 @@
 package com.icarus.ligabasquetbol.fileio;
 
-import com.vaadin.server.FileResource;
-import com.vaadin.server.ThemeResource;
 import com.vaadin.ui.UI;
 
 import java.io.*;

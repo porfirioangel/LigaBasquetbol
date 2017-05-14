@@ -2,6 +2,7 @@ package com.icarus.ligabasquetbol.persistencia.accesodatos;
 
 import com.icarus.ligabasquetbol.persistencia.ConfigDb;
 import com.icarus.ligabasquetbol.persistencia.modelos.Entrenador;
+import com.icarus.ligabasquetbol.persistencia.modelos.Usuario;
 import com.vaadin.ui.Notification;
 import org.apache.ibatis.session.SqlSession;
 
@@ -24,14 +25,25 @@ public class AccesoEntrenador {
 
     public boolean insertar(Entrenador entrenador) {
         boolean ok = false;
+        AccesoUsuario accesoUsuario = new AccesoUsuario();
         SqlSession sesion = ConfigDb.getSqlMapper().openSession();
         try {
+            Usuario usuario = entrenador.getUsuario();
+            if (usuario != null) {
+                usuario.setPassword("password");
+                usuario.setClaveVerificacion(accesoUsuario.obtenerNuevaVerificacion());
+                usuario.setTipoUsuario("entrenador");
+                accesoUsuario.insertar(usuario);
+                usuario = accesoUsuario.getUsuarioByEmail(usuario.getEmail());
+                entrenador.setUsuario(usuario);
+            }
             sesion.insert("insertEntrenador", entrenador);
             sesion.commit();
             ok = true;
         } catch (Exception e) {
-            Notification.show("Error al insertar el entrenador ",
-                    e.getCause().getMessage(), Notification.Type.ERROR_MESSAGE);
+            e.printStackTrace();
+            Notification.show("Error al insertar el entrenador " +
+                    e, Notification.Type.ERROR_MESSAGE);
         } finally {
             sesion.close();
         }
