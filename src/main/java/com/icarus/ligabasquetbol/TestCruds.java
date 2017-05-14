@@ -113,6 +113,7 @@ public class TestCruds {
         entrenador.setFechaNacimiento(Date.valueOf(LocalDate.now()));
         entrenador.setUrlFoto(entrenador.getTelefono() + ".jpg");
         entrenador.setEquipo(entrenador.getEquipo());
+        entrenador.setUsuario(null);
         boolean exito = acceso.insertar(entrenador);
         System.out.println(">> Insert entrenador: " + exito);
         entrenadores = acceso.obtenerTodos();

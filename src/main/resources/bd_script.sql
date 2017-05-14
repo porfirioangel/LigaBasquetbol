@@ -24,6 +24,34 @@ CREATE DATABASE /*!32312 IF NOT EXISTS*/ `liga_basquet` /*!40100 DEFAULT CHARACT
 USE `liga_basquet`;
 
 --
+-- Table structure for table `administrador`
+--
+
+DROP TABLE IF EXISTS `administrador`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `administrador` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(45) NOT NULL,
+  `ap_paterno` varchar(45) NOT NULL,
+  `ap_materno` varchar(45) NOT NULL,
+  `usuario_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `administrador_usuario_id_uindex` (`usuario_id`),
+  CONSTRAINT `administrador_usuario_id_fk` FOREIGN KEY (`usuario_id`) REFERENCES `usuario` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `administrador`
+--
+
+LOCK TABLES `administrador` WRITE;
+/*!40000 ALTER TABLE `administrador` DISABLE KEYS */;
+/*!40000 ALTER TABLE `administrador` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `entrenador`
 --
 
@@ -39,12 +67,15 @@ CREATE TABLE `entrenador` (
   `fecha_nacimiento` date NOT NULL,
   `url_foto` varchar(255) NOT NULL,
   `equipo_id` int(11) DEFAULT NULL,
+  `usuario_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `entrenador_telefono_uindex` (`telefono`),
   UNIQUE KEY `entrenador_url_foto_uindex` (`url_foto`),
+  UNIQUE KEY `entrenador_usuario_id_uindex` (`usuario_id`),
   KEY `fk_jugador_equipo_idx` (`equipo_id`),
+  CONSTRAINT `entrenador_usuario_id_fk` FOREIGN KEY (`usuario_id`) REFERENCES `usuario` (`id`),
   CONSTRAINT `fk_jugador_equipo0` FOREIGN KEY (`equipo_id`) REFERENCES `equipo` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -53,6 +84,9 @@ CREATE TABLE `entrenador` (
 
 LOCK TABLES `entrenador` WRITE;
 /*!40000 ALTER TABLE `entrenador` DISABLE KEYS */;
+INSERT INTO `entrenador` VALUES (22,'Jaime','Delgado','Moreno','1112223334','1987-05-10','ent_1112223334',NULL,NULL);
+INSERT INTO `entrenador` VALUES (23,'Julieta','Castro','Tejeda','2223334445','1989-07-02','ent_2223334445',22,NULL);
+INSERT INTO `entrenador` VALUES (28,'Pedro','Coronel','Morales','3334445556','2017-05-25','ent_3334445556',23,22);
 /*!40000 ALTER TABLE `entrenador` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -70,7 +104,7 @@ CREATE TABLE `equipo` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `nombre_UNIQUE` (`nombre`),
   UNIQUE KEY `url_logo_UNIQUE` (`url_logo`)
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -79,6 +113,8 @@ CREATE TABLE `equipo` (
 
 LOCK TABLES `equipo` WRITE;
 /*!40000 ALTER TABLE `equipo` DISABLE KEYS */;
+INSERT INTO `equipo` VALUES (22,'Potros','potros.png');
+INSERT INTO `equipo` VALUES (23,'Marinos','marinos.png');
 /*!40000 ALTER TABLE `equipo` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -103,7 +139,7 @@ CREATE TABLE `jugador` (
   UNIQUE KEY `jugador_telefono_uindex` (`telefono`),
   KEY `fk_jugador_equipo_idx` (`equipo_id`),
   CONSTRAINT `fk_jugador_equipo` FOREIGN KEY (`equipo_id`) REFERENCES `equipo` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=118 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=133 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -115,14 +151,12 @@ LOCK TABLES `jugador` WRITE;
 INSERT INTO `jugador` VALUES (98,'Porfirio Ángel','Díaz','Sánchez','4949428616','1996-07-20','jug_4949428616',NULL);
 INSERT INTO `jugador` VALUES (99,'Francisco','Pérez','Lozano','9999999990','1996-08-21','jug_9999999990',NULL);
 INSERT INTO `jugador` VALUES (100,'Martín','Cabrera','Mendoza','9999999991','1996-09-22','jug_9999999991',NULL);
-INSERT INTO `jugador` VALUES (101,'Rodrigo','Pinedo','Márquez','9999999992','1996-10-23','jug_9999999992',NULL);
 INSERT INTO `jugador` VALUES (102,'Esteban','De la Rosa','De la Cruz','9999999993','1996-11-24','jug_9999999993',NULL);
 INSERT INTO `jugador` VALUES (103,'Mariana','Ortíz','Jasso','9999999994','1996-12-25','jug_9999999994',NULL);
 INSERT INTO `jugador` VALUES (104,'Haydé','Delgado','Castro','9999999995','1998-11-15','jug_9999999995',NULL);
 INSERT INTO `jugador` VALUES (105,'Julieta','Castro','Tejeda','9999999996','1978-10-16','jug_9999999996',NULL);
 INSERT INTO `jugador` VALUES (106,'Leticia','Sánchez','Acevedo','9999999997','1969-10-23','jug_9999999997',NULL);
 INSERT INTO `jugador` VALUES (107,'Jimena Sofía','Díaz','Sánchez','9999999999','2006-08-29','jug_9999999999',NULL);
-INSERT INTO `jugador` VALUES (117,'Test','Test','Test','TestTestTe','2017-05-10','jug_TestTestTe',NULL);
 /*!40000 ALTER TABLE `jugador` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -176,7 +210,7 @@ CREATE TABLE `usuario` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `usuario_UNIQUE` (`email`),
   UNIQUE KEY `usuario_clave_verificacion_uindex` (`clave_verificacion`)
-) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -185,6 +219,7 @@ CREATE TABLE `usuario` (
 
 LOCK TABLES `usuario` WRITE;
 /*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
+INSERT INTO `usuario` VALUES (22,'mail@mail.mail','mailmail','entrenador','qwerty');
 /*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -197,4 +232,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-05-10 17:49:19
+-- Dump completed on 2017-05-14 13:48:35

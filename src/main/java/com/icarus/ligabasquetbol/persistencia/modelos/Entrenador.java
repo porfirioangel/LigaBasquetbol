@@ -12,6 +12,8 @@ public class Entrenador {
     private String urlFoto;
     private Equipo equipo;
 
+    private Usuario usuario;
+
     public Entrenador() {
     }
 
@@ -79,6 +81,14 @@ public class Entrenador {
         this.equipo = equipo;
     }
 
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+
     @Override
     public String toString() {
         return "Entrenador{" +
@@ -90,6 +100,7 @@ public class Entrenador {
                 ", fechaNacimiento=" + fechaNacimiento +
                 ", urlFoto='" + urlFoto + '\'' +
                 ", equipo=" + equipo +
+                ", usuario=" + usuario +
                 '}';
     }
 }

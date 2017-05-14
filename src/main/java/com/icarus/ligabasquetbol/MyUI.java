@@ -3,8 +3,6 @@ package com.icarus.ligabasquetbol;
 import javax.servlet.annotation.WebServlet;
 
 import com.icarus.ligabasquetbol.conectividad.Email;
-import com.icarus.ligabasquetbol.fileio.FileRW;
-import com.icarus.ligabasquetbol.vistas.designs.AdminDashboardDesign;
 import com.icarus.ligabasquetbol.vistas.designs.AdminDashboardScreen;
 import com.vaadin.annotations.Theme;
 import com.vaadin.annotations.VaadinServletConfiguration;
@@ -26,7 +24,8 @@ public class MyUI extends UI {
 
     @Override
     protected void init(VaadinRequest vaadinRequest) {
-        new Email().enviarEmail("porfirioads@gmail.com");
+//        new Email().enviarEmailConfirmacion("porfirioads@gmail.com",
+//                "Porfirio", "qweewqqweewq");
         TestCruds.test();
         setContent(new AdminDashboardScreen());
     }
