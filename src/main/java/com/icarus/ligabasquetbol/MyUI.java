@@ -2,7 +2,8 @@ package com.icarus.ligabasquetbol;
 
 import javax.servlet.annotation.WebServlet;
 
-import com.icarus.ligabasquetbol.vistas.designs.DashboardAdminScreen;
+import com.icarus.ligabasquetbol.vistas.designs.AdminDashboardDesign;
+import com.icarus.ligabasquetbol.vistas.designs.AdminDashboardScreen;
 import com.vaadin.annotations.Theme;
 import com.vaadin.annotations.VaadinServletConfiguration;
 import com.vaadin.annotations.Viewport;
@@ -24,7 +25,7 @@ public class MyUI extends UI {
     @Override
     protected void init(VaadinRequest vaadinRequest) {
         TestCruds.test();
-        setContent(new DashboardAdminScreen());
+        setContent(new AdminDashboardScreen());
     }
 
     @WebServlet(urlPatterns = "/*", name = "MyUIServlet", asyncSupported = true)

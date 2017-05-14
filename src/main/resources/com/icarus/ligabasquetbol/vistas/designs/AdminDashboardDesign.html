@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <meta name="design-properties" content="{&quot;RULERS_VISIBLE&quot;:true,&quot;GUIDELINES_VISIBLE&quot;:false,&quot;SNAP_TO_OBJECTS&quot;:true,&quot;SNAP_TO_GRID&quot;:true,&quot;SNAPPING_DISTANCE&quot;:10,&quot;JAVA_SOURCES_ROOT&quot;:&quot;src/main/java&quot;,&quot;THEME&quot;:&quot;mytheme&quot;}">
+  <meta name="vaadin-version" content="8.0.0">
+ </head>
+ <body>
+  <vaadin-horizontal-layout style-name="app-shell" spacing="false" responsive size-full>
+   <vaadin-css-layout style-name="navigation-bar-container" width="200px" height-full>
+    <vaadin-css-layout style-name="navigation-bar" size-full>
+     <vaadin-label style-name="logo" width-full plain-text>
+       Liga de Basquetbol 
+     </vaadin-label>
+     <vaadin-button icon="fonticon://Vaadin-Icons/e7b3" style-name="menu borderless" plain-text _id="menuButton">
+       Menu 
+     </vaadin-button>
+     <vaadin-css-layout style-name="navigation" width-full _id="menu">
+      <vaadin-button icon="fonticon://Vaadin-Icons/e60e" style-name="borderless" width-full height="40px" plain-text _id="btnJugadores">
+        Jugadores 
+      </vaadin-button>
+      <vaadin-button icon="fonticon://Vaadin-Icons/e910" style-name="borderless" width-full plain-text _id="btnEntrenadores">
+        Entrenadores 
+      </vaadin-button>
+      <vaadin-button icon="fonticon://Vaadin-Icons/e629" style-name="borderless" width-full plain-text _id="btnPartidos">
+        Partidos 
+      </vaadin-button>
+     </vaadin-css-layout>
+    </vaadin-css-layout>
+   </vaadin-css-layout>
+   <vaadin-vertical-layout style-name="content-container" spacing="false" size-full margin="false" :expand>
+    <vaadin-label style-name="view-title" width-full plain-text _id="lblTituloVentana">
+      View title 
+    </vaadin-label>
+    <vaadin-css-layout size-full _id="content" :expand>
+     <vaadin-css-layout style-name="padding-right padding-bottom padding-left" size-full>
+      <vaadin-css-layout style-name="content-section padding" size-full _id="contentPanel"></vaadin-css-layout>
+     </vaadin-css-layout>
+    </vaadin-css-layout>
+   </vaadin-vertical-layout>
+  </vaadin-horizontal-layout>
+ </body>
+</html>
