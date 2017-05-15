@@ -12719,16 +12719,16 @@ div.v-layout.v-horizontal.v-widget {
 	width: 100% !important;
 }
 
-.mytheme .grid-jugadores .v-grid-cell {
+.mytheme .grid-list-with-image .v-grid-cell {
 	height: 100px;
 }
 
-.mytheme .grid-jugadores .v-grid-cell > * {
+.mytheme .grid-list-with-image .v-grid-cell > * {
 	line-height: 100px;
 	vertical-align: middle;
 }
 
-.mytheme .grid-jugadores .v-grid-header, .mytheme .grid-jugadores .v-grid-header * {
+.mytheme .grid-list-with-image .v-grid-header, .mytheme .grid-list-with-image .v-grid-header * {
 	height: 50px;
 	line-height: 50px;
 	vertical-align: middle;
@@ -12751,4 +12751,12 @@ div.v-layout.v-horizontal.v-widget {
 .mytheme .img-logo {
 	width: 90%;
 	margin: 5%;
+}
+
+.mytheme .color-text-blue {
+	color: #1995F2;
+}
+
+.mytheme .content-section {
+	overflow-y: hidden !important;
 }

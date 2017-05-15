@@ -99,7 +99,7 @@ public class ListEntrenadoresView extends ListEntrenadoresDesign {
 
     private void loadEntrenadores() {
         List<Entrenador> entrenadores = accesoEntrenador.obtenerTodos();
-        gridEntrenadores.addStyleName("grid-jugadores");
+        gridEntrenadores.addStyleName("grid-list-with-image");
         gridEntrenadores.setItems(entrenadores);
         gridEntrenadores.removeAllColumns();
         gridEntrenadores.addColumn(entrenador ->

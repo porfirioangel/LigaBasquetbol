@@ -92,6 +92,11 @@
             <artifactId>mail</artifactId>
             <version>1.4.7</version>
         </dependency>
+        <dependency>
+            <groupId>org.vaadin.addons</groupId>
+            <artifactId>border-layout-addon</artifactId>
+            <version>0.8</version>
+        </dependency>
     </dependencies>
 
     <build>

@@ -1,5 +1,6 @@
 package com.icarus.ligabasquetbol.vistas.designs;
 
+import com.icarus.ligabasquetbol.vistas.ListEquiposView;
 import com.vaadin.ui.Button;
 
 public class AdminDashboardScreen extends AdminDashboardDesign {
@@ -11,6 +12,7 @@ public class AdminDashboardScreen extends AdminDashboardDesign {
             btnJugadores.addStyleName("btn-dash-active");
             btnEntrenadores.removeStyleName("btn-dash-active");
             btnPartidos.removeStyleName("btn-dash-active");
+            btnEquipos.removeStyleName("btn-dash-active");
             lblTituloVentana.setValue("Jugadores");
             contentPanel.removeAllComponents();
             contentPanel.addComponent(new ListJugadoresView());
@@ -19,14 +21,26 @@ public class AdminDashboardScreen extends AdminDashboardDesign {
             btnJugadores.removeStyleName("btn-dash-active");
             btnEntrenadores.addStyleName("btn-dash-active");
             btnPartidos.removeStyleName("btn-dash-active");
+            btnEquipos.removeStyleName("btn-dash-active");
             lblTituloVentana.setValue("Entrenadores");
             contentPanel.removeAllComponents();
             contentPanel.addComponent(new ListEntrenadoresView());
+        });
+        btnEquipos.addClickListener((Button.ClickListener) event -> {
+            btnJugadores.removeStyleName("btn-dash-active");
+            btnEntrenadores.removeStyleName("btn-dash-active");
+            btnPartidos.removeStyleName("btn-dash-active");
+            btnEquipos.addStyleName("btn-dash-active");
+            lblTituloVentana.setValue("Equipos");
+            contentPanel.removeAllComponents();
+            contentPanel.addComponent(new ListEquiposView());
+            contentPanel.addStyleName("no-scrollable-y");
         });
         btnPartidos.addClickListener((Button.ClickListener) event -> {
             btnJugadores.removeStyleName("btn-dash-active");
             btnEntrenadores.removeStyleName("btn-dash-active");
             btnPartidos.addStyleName("btn-dash-active");
+            btnEquipos.removeStyleName("btn-dash-active");
             lblTituloVentana.setValue("Partidos");
             contentPanel.removeAllComponents();
         });

@@ -43,5 +43,6 @@
     <orderEntry type="library" name="Maven: de.steinwedel.vaadin.addon:messagebox:4.0.21" level="project" />
     <orderEntry type="library" name="Maven: javax.mail:mail:1.4.7" level="project" />
     <orderEntry type="library" name="Maven: javax.activation:activation:1.1" level="project" />
+    <orderEntry type="library" name="Maven: org.vaadin.addons:border-layout-addon:0.8" level="project" />
   </component>
 </module>

@@ -24,6 +24,7 @@ public class AdminDashboardDesign extends HorizontalLayout {
     protected CssLayout menu;
     protected Button btnJugadores;
     protected Button btnEntrenadores;
+    protected Button btnEquipos;
     protected Button btnPartidos;
     protected Label lblTituloVentana;
     protected CssLayout content;

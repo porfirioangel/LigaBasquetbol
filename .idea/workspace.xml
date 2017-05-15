@@ -2,16 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7ac45095-ec35-40e7-bc2f-137cebf0257e" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_vaadin_addons_border_layout_addon_0_8.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/icarus/ligabasquetbol/vistas/ListEquiposView.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/ligabasquet-1.0-SNAPSHOT.war" afterPath="$PROJECT_DIR$/target/ligabasquet-1.0-SNAPSHOT.war" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.designer/designer-theme.css" afterPath="$PROJECT_DIR$/.designer/designer-theme.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/artifacts/LigaBasquetbol_war_exploded.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/LigaBasquetbol_war_exploded.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/icarus/ligabasquetbol/MyUI.java" afterPath="$PROJECT_DIR$/src/main/java/com/icarus/ligabasquetbol/MyUI.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/icarus/ligabasquetbol/persistencia/accesodatos/AccesoEntrenador.java" afterPath="$PROJECT_DIR$/src/main/java/com/icarus/ligabasquetbol/persistencia/accesodatos/AccesoEntrenador.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/icarus/ligabasquetbol/persistencia/accesodatos/AccesoEquipo.java" afterPath="$PROJECT_DIR$/src/main/java/com/icarus/ligabasquetbol/persistencia/accesodatos/AccesoEquipo.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/icarus/ligabasquetbol/persistencia/accesodatos/AccesoJugador.java" afterPath="$PROJECT_DIR$/src/main/java/com/icarus/ligabasquetbol/persistencia/accesodatos/AccesoJugador.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/icarus/ligabasquetbol/persistencia/accesodatos/AccesoUsuario.java" afterPath="$PROJECT_DIR$/src/main/java/com/icarus/ligabasquetbol/persistencia/accesodatos/AccesoUsuario.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LigaBasquetbol.iml" afterPath="$PROJECT_DIR$/LigaBasquetbol.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/icarus/ligabasquetbol/vistas/designs/AdminDashboardDesign.java" afterPath="$PROJECT_DIR$/src/main/java/com/icarus/ligabasquetbol/vistas/designs/AdminDashboardDesign.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/icarus/ligabasquetbol/vistas/designs/AdminDashboardScreen.java" afterPath="$PROJECT_DIR$/src/main/java/com/icarus/ligabasquetbol/vistas/designs/AdminDashboardScreen.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/icarus/ligabasquetbol/vistas/designs/ListEntrenadoresView.java" afterPath="$PROJECT_DIR$/src/main/java/com/icarus/ligabasquetbol/vistas/designs/ListEntrenadoresView.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/com/icarus/ligabasquetbol/persistencia/mappers/usuario.xml" afterPath="$PROJECT_DIR$/src/main/resources/com/icarus/ligabasquetbol/persistencia/mappers/usuario.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/VAADIN/themes/mytheme/layouts/email_confirmacion.html" afterPath="$PROJECT_DIR$/src/main/webapp/VAADIN/themes/mytheme/layouts/email_confirmacion.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/icarus/ligabasquetbol/vistas/designs/ListJugadoresView.java" afterPath="$PROJECT_DIR$/src/main/java/com/icarus/ligabasquetbol/vistas/designs/ListJugadoresView.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/com/icarus/ligabasquetbol/vistas/designs/AdminDashboardDesign.html" afterPath="$PROJECT_DIR$/src/main/resources/com/icarus/ligabasquetbol/vistas/designs/AdminDashboardDesign.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/VAADIN/themes/mytheme/mytheme.scss" afterPath="$PROJECT_DIR$/src/main/webapp/VAADIN/themes/mytheme/mytheme.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/ligabasquet-1.0-SNAPSHOT/VAADIN/themes/mytheme/mytheme.scss" afterPath="$PROJECT_DIR$/target/ligabasquet-1.0-SNAPSHOT/VAADIN/themes/mytheme/mytheme.scss" />
     </list>
     <ignored path="LigaBasquetbol.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -34,126 +39,12 @@
     <favorites_list name="LigaBasquetbol" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="MyUI.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/icarus/ligabasquetbol/MyUI.java">
+    <leaf>
+      <file leaf-file-name="AdminDashboardScreen.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/icarus/ligabasquetbol/vistas/designs/AdminDashboardScreen.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="992">
-              <caret line="49" column="9" selection-start-line="49" selection-start-column="9" selection-end-line="49" selection-end-column="9" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AccesoEntrenador.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/icarus/ligabasquetbol/persistencia/accesodatos/AccesoEntrenador.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1596">
-              <caret line="63" column="28" selection-start-line="63" selection-start-column="28" selection-end-line="63" selection-end-column="28" />
-              <folding>
-                <element signature="e#455#456#0" expanded="true" />
-                <element signature="e#506#507#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AccesoEquipo.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/icarus/ligabasquetbol/persistencia/accesodatos/AccesoEquipo.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="280">
-              <caret line="45" column="28" selection-start-line="45" selection-start-column="28" selection-end-line="45" selection-end-column="28" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="entrenador.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/com/icarus/ligabasquetbol/persistencia/mappers/entrenador.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="588">
-              <caret line="21" column="36" selection-start-line="21" selection-start-column="36" selection-end-line="21" selection-end-column="36" />
-              <folding>
-                <marker date="1494787555476" expanded="true" signature="327:707" ph="SELECT t.id,... entrenador" />
-                <marker date="1494787555476" expanded="true" signature="327:798" ph="SELECT t.id,... entrenador" />
-                <marker date="1494787555476" expanded="true" signature="885:1146" ph="INSERT INTO entrenador... " />
-                <marker date="1494787555476" expanded="true" signature="1233:1490" ph="UPDATE entre... " />
-                <marker date="1494787555476" expanded="true" signature="1550:1587" ph="DELETE FROM " />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="equipo.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/com/icarus/ligabasquetbol/persistencia/mappers/equipo.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-361">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding>
-                <marker date="1494104534000" expanded="true" signature="319:358" ph="SELECT id, n... equipo" />
-                <marker date="1494104534000" expanded="true" signature="437:505" ph="INSERT INTO equipo... " />
-                <marker date="1494104534000" expanded="true" signature="584:654" ph="UPDATE equip... " />
-                <marker date="1494104534000" expanded="true" signature="710:743" ph="DELETE FROM " />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="jugador.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/com/icarus/ligabasquetbol/persistencia/mappers/jugador.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="59">
-              <caret line="9" column="36" selection-start-line="9" selection-start-column="36" selection-end-line="9" selection-end-column="36" />
-              <folding>
-                <marker date="1494466965180" expanded="true" signature="321:598" ph="SELECT j.id,... jugador" />
-                <marker date="1494466965180" expanded="true" signature="679:910" ph="INSERT INTO jugador... " />
-                <marker date="1494466965180" expanded="true" signature="991:1219" ph="UPDATE jugad... " />
-                <marker date="1494466965180" expanded="true" signature="1276:1310" ph="DELETE FROM " />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="usuario.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/com/icarus/ligabasquetbol/persistencia/mappers/usuario.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="115">
-              <caret line="47" column="52" selection-start-line="47" selection-start-column="35" selection-end-line="47" selection-end-column="52" />
-              <folding>
-                <marker date="1494802910845" expanded="true" signature="321:402" ph="SELECT id, e... usuario" />
-                <marker date="1494802910845" expanded="true" signature="528:630" ph="SELECT id, e... usuario" />
-                <marker date="1494802910845" expanded="true" signature="767:894" ph="SELECT id, e... usuario" />
-                <marker date="1494802910845" expanded="true" signature="975:1124" ph="INSERT INTO usuario... " />
-                <marker date="1494802910845" expanded="true" signature="1205:1361" ph="UPDATE usuar... " />
-                <marker date="1494802910845" expanded="true" signature="1418:1452" ph="DELETE FROM " />
-                <marker date="1494802910845" expanded="true" signature="1536:1702" ph="SELECT id, e... usuario" />
-                <marker date="1494802910845" expanded="true" signature="1784:1841" ph="UPDATE usuar... " />
-                <marker date="1494802910845" expanded="true" signature="1784:1880" ph="UPDATE usuar... " />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="email_confirmacion.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/VAADIN/themes/mytheme/layouts/email_confirmacion.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="140">
-              <caret line="5" column="62" selection-start-line="5" selection-start-column="62" selection-end-line="5" selection-end-column="62" />
-              <folding>
-                <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#p#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#a#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AccesoUsuario.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/icarus/ligabasquetbol/persistencia/accesodatos/AccesoUsuario.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="264">
-              <caret line="46" column="28" selection-start-line="46" selection-start-column="28" selection-end-line="46" selection-end-column="28" />
+            <state relative-caret-position="1008">
+              <caret line="36" column="54" selection-start-line="36" selection-start-column="54" selection-end-line="36" selection-end-column="54" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -161,13 +52,66 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AccesoJugador.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/icarus/ligabasquetbol/persistencia/accesodatos/AccesoJugador.java">
+      <file leaf-file-name="ListJugadoresView.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/icarus/ligabasquetbol/vistas/designs/ListJugadoresView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="280">
-              <caret line="45" column="28" selection-start-line="45" selection-start-column="28" selection-end-line="45" selection-end-column="28" />
+            <state relative-caret-position="112">
+              <caret line="90" column="34" selection-start-line="90" selection-start-column="34" selection-end-line="90" selection-end-column="34" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ListEntrenadoresView.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/icarus/ligabasquetbol/vistas/designs/ListEntrenadoresView.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1188">
+              <caret line="121" column="5" selection-start-line="121" selection-start-column="5" selection-end-line="121" selection-end-column="5" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ListEquiposView.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/icarus/ligabasquetbol/vistas/ListEquiposView.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="320">
+              <caret line="75" column="37" selection-start-line="75" selection-start-column="37" selection-end-line="75" selection-end-column="37" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="mytheme.scss" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/VAADIN/themes/mytheme/mytheme.scss">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="339">
+              <caret line="95" column="3" selection-start-line="95" selection-start-column="3" selection-end-line="95" selection-end-column="3" />
               <folding />
             </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="320">
+              <caret line="94" column="20" selection-start-line="94" selection-start-column="20" selection-end-line="94" selection-end-column="20" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ListEntrenadoresDesign.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/com/icarus/ligabasquetbol/vistas/designs/ListEntrenadoresDesign.html">
+          <provider selected="true" editor-type-id="com.vaadin.designer2.intellij.webEditor">
+            <state />
           </provider>
         </entry>
       </file>
@@ -202,22 +146,15 @@
         <option value="$PROJECT_DIR$/src/main/java/com/icarus/ligabasquetbol/utils/ImageUploader.java" />
         <option value="$PROJECT_DIR$/src/main/resources/com/icarus/ligabasquetbol/vistas/designs/ListJugadoresDesign.html" />
         <option value="$PROJECT_DIR$/src/main/resources/com/icarus/ligabasquetbol/persistencia/mappers/jugador.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/icarus/ligabasquetbol/vistas/designs/ListJugadoresView.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/VAADIN/themes/mytheme/mytheme.scss" />
         <option value="$PROJECT_DIR$/src/main/resources/com/icarus/ligabasquetbol/vistas/designs/DashboardAdminDesign.html" />
-        <option value="$PROJECT_DIR$/src/main/resources/com/icarus/ligabasquetbol/vistas/designs/AdminDashboardDesign.html" />
         <option value="$PROJECT_DIR$/src/main/java/com/icarus/ligabasquetbol/vistas/designs/DashboardAdminScreen.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/icarus/ligabasquetbol/conectividad/ImageUploader.java" />
-        <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/webapp/VAADIN/themes/mytheme/layouts/email_confirmación.html" />
         <option value="$PROJECT_DIR$/src/main/java/com/icarus/ligabasquetbol/conectividad/Email.java" />
         <option value="$PROJECT_DIR$/src/main/resources/com/icarus/ligabasquetbol/persistencia/mappers/entrenador.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/icarus/ligabasquetbol/TestCruds.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/icarus/ligabasquetbol/fileio/FileRW.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/icarus/ligabasquetbol/vistas/designs/AdminDashboardScreen.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/com/icarus/ligabasquetbol/vistas/designs/ListEntrenadoresDesign.html" />
         <option value="$PROJECT_DIR$/src/main/java/com/icarus/ligabasquetbol/persistencia/modelos/Entrenador.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/icarus/ligabasquetbol/vistas/designs/ListEntrenadoresView.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/VAADIN/themes/mytheme/layouts/email_confirmacion.html" />
         <option value="$PROJECT_DIR$/src/main/resources/com/icarus/ligabasquetbol/persistencia/mappers/usuario.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/icarus/ligabasquetbol/MyUI.java" />
@@ -225,6 +162,15 @@
         <option value="$PROJECT_DIR$/src/main/java/com/icarus/ligabasquetbol/persistencia/accesodatos/AccesoEntrenador.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/icarus/ligabasquetbol/persistencia/accesodatos/AccesoEquipo.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/icarus/ligabasquetbol/persistencia/accesodatos/AccesoJugador.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/com/icarus/ligabasquetbol/vistas/designs/AdminDashboardDesign.html" />
+        <option value="$PROJECT_DIR$/src/main/java/com/icarus/ligabasquetbol/vistas/designs/ListEntrenadoresView.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/icarus/ligabasquetbol/vistas/ListEquiposScreen.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/com/icarus/ligabasquetbol/vistas/designs/ListEntrenadoresDesign.html" />
+        <option value="$PROJECT_DIR$/src/main/java/com/icarus/ligabasquetbol/vistas/designs/AdminDashboardScreen.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/icarus/ligabasquetbol/vistas/designs/ListJugadoresView.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/webapp/VAADIN/themes/mytheme/mytheme.scss" />
+        <option value="$PROJECT_DIR$/src/main/java/com/icarus/ligabasquetbol/vistas/ListEquiposView.java" />
       </list>
     </option>
   </component>
@@ -505,40 +451,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ligabasquetbol" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="persistencia" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mappers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LigaBasquetbol" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LigaBasquetbol" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="java" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -781,7 +693,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="add_unversioned_files" value="$PROJECT_DIR$/git_push_luis.sh" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
-    <property name="designer-theme-cache.timestamp" value="1494787850272" />
+    <property name="designer-theme-cache.timestamp" value="1494879205951" />
     <property name="designer-theme-cache.name" value="mytheme" />
   </component>
   <component name="RecentsManager">
@@ -1102,7 +1014,8 @@
       <workItem from="1494770619413" duration="3129000" />
       <workItem from="1494776146218" duration="6407000" />
       <workItem from="1494785460742" duration="12479000" />
-      <workItem from="1494802104123" duration="1363000" />
+      <workItem from="1494802104123" duration="1709000" />
+      <workItem from="1494855393522" duration="6865000" />
     </task>
     <task id="LOCAL-00001" summary="Primer commit (Creación del proyecto)">
       <created>1490795890064</created>
@@ -1136,7 +1049,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="65310000" />
+    <option name="totallyTimeSpent" value="72521000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1" y="0" width="1922" height="1050" extended-state="6" />
@@ -1156,7 +1069,9 @@
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24895833" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="com.vaadin.designer2.intellij.outline.OutlineToolWindowManager.toolWindow" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32916668" sideWeight="0.80537975" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="com.vaadin.designer2.intellij.palette.PaletteToolWindowManager.toolWindow" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32916668" sideWeight="0.19462025" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1166,8 +1081,6 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="com.vaadin.designer2.intellij.outline.OutlineToolWindowManager.toolWindow" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32916668" sideWeight="0.7898089" order="4" side_tool="true" content_ui="tabs" />
-      <window_info id="com.vaadin.designer2.intellij.palette.PaletteToolWindowManager.toolWindow" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32916668" sideWeight="0.21019109" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32908705" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
@@ -1280,13 +1193,6 @@
     <option name="serverPort" value="44955" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/git_push_luis.sh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/bd_script.sql">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="140">
@@ -1396,45 +1302,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/icarus/ligabasquetbol/vistas/designs/ListJugadoresDesign.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="364">
-          <caret line="22" column="14" selection-start-line="22" selection-start-column="14" selection-end-line="22" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/icarus/ligabasquetbol/vistas/designs/DashboardAdminDesign.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/VAADIN/themes/mytheme/mytheme.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="115">
-          <caret line="79" column="0" selection-start-line="79" selection-start-column="0" selection-end-line="79" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/com/icarus/ligabasquetbol/vistas/designs/DashboardAdminDesign.html" />
-    <entry file="file://$PROJECT_DIR$/src/main/resources/com/icarus/ligabasquetbol/vistas/designs/AdminDashboardDesign.html">
-      <provider selected="true" editor-type-id="com.vaadin.designer2.intellij.webEditor">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/icarus/ligabasquetbol/persistencia/modelos/Equipo.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="56">
           <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-          <folding>
-            <element signature="e#207#208#0" expanded="false" />
-            <element signature="e#232#233#0" expanded="false" />
-            <element signature="e#265#266#0" expanded="false" />
-            <element signature="e#293#294#0" expanded="false" />
-            <element signature="e#326#327#0" expanded="false" />
-            <element signature="e#355#356#0" expanded="false" />
-            <element signature="e#399#400#0" expanded="false" />
-            <element signature="e#435#436#0" expanded="false" />
-            <element signature="e#469#470#0" expanded="false" />
-            <element signature="e#499#500#0" expanded="false" />
-            <element signature="e#545#546#0" expanded="false" />
-            <element signature="e#583#584#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1481,7 +1354,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="280">
           <caret line="10" column="5" selection-start-line="10" selection-start-column="5" selection-end-line="10" selection-end-column="5" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1489,7 +1361,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2492">
           <caret line="96" column="20" selection-start-line="96" selection-start-column="20" selection-end-line="96" selection-end-column="20" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1503,21 +1374,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2604">
-          <caret line="93" column="21" selection-start-line="93" selection-start-column="21" selection-end-line="93" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/icarus/ligabasquetbol/conectividad/Email.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="40">
           <caret line="41" column="46" selection-start-line="41" selection-start-column="33" selection-end-line="41" selection-end-column="46" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1534,21 +1394,10 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/icarus/ligabasquetbol/vistas/designs/AdminDashboardScreen.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="392">
-          <caret line="23" column="24" selection-start-line="23" selection-start-column="24" selection-end-line="23" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/icarus/ligabasquetbol/fileio/FileRW.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="404">
           <caret line="20" column="1" selection-start-line="20" selection-start-column="1" selection-end-line="20" selection-end-column="1" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1556,19 +1405,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-44">
           <caret line="24" column="13" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/com/icarus/ligabasquetbol/vistas/designs/ListEntrenadoresDesign.html">
-      <provider selected="true" editor-type-id="com.vaadin.designer2.intellij.webEditor">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/icarus/ligabasquetbol/vistas/designs/ListJugadoresView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3444">
-          <caret line="141" column="21" selection-start-line="141" selection-start-column="21" selection-end-line="141" selection-end-column="21" />
           <folding />
         </state>
       </provider>
@@ -1585,17 +1421,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2856">
           <caret line="115" column="34" selection-start-line="115" selection-start-column="30" selection-end-line="115" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/icarus/ligabasquetbol/vistas/designs/ListEntrenadoresView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4900">
-          <caret line="197" column="34" selection-start-line="197" selection-start-column="34" selection-end-line="197" selection-end-column="34" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1604,10 +1429,10 @@
         <state relative-caret-position="140">
           <caret line="5" column="62" selection-start-line="5" selection-start-column="62" selection-end-line="5" selection-end-column="62" />
           <folding>
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#p#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#p#0;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#a#0;n#div#0;n#div#0;n#!!top" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1683,17 +1508,9 @@
         <state relative-caret-position="1596">
           <caret line="63" column="28" selection-start-line="63" selection-start-column="28" selection-end-line="63" selection-end-column="28" />
           <folding>
-            <element signature="e#455#456#0" expanded="true" />
-            <element signature="e#506#507#0" expanded="true" />
+            <element signature="e#455#456#0" expanded="false" />
+            <element signature="e#506#507#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/icarus/ligabasquetbol/persistencia/accesodatos/AccesoEquipo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="45" column="28" selection-start-line="45" selection-start-column="28" selection-end-line="45" selection-end-column="28" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1707,8 +1524,86 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/icarus/ligabasquetbol/persistencia/accesodatos/AccesoUsuario.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
+        <state relative-caret-position="-2256">
           <caret line="46" column="28" selection-start-line="46" selection-start-column="28" selection-end-line="46" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/icarus/ligabasquetbol/persistencia/accesodatos/AccesoEquipo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="280">
+          <caret line="45" column="28" selection-start-line="45" selection-start-column="28" selection-end-line="45" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/com/icarus/ligabasquetbol/vistas/designs/AdminDashboardDesign.html">
+      <provider selected="true" editor-type-id="com.vaadin.designer2.intellij.webEditor">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/icarus/ligabasquetbol/vistas/designs/ListJugadoresDesign.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-72">
+          <caret line="22" column="14" selection-start-line="22" selection-start-column="14" selection-end-line="22" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/com/icarus/ligabasquetbol/vistas/designs/ListEntrenadoresDesign.html">
+      <provider selected="true" editor-type-id="com.vaadin.designer2.intellij.webEditor">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/icarus/ligabasquetbol/vistas/designs/AdminDashboardScreen.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1008">
+          <caret line="36" column="54" selection-start-line="36" selection-start-column="54" selection-end-line="36" selection-end-column="54" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/icarus/ligabasquetbol/vistas/designs/ListJugadoresView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="112">
+          <caret line="90" column="34" selection-start-line="90" selection-start-column="34" selection-end-line="90" selection-end-column="34" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/icarus/ligabasquetbol/vistas/designs/ListEntrenadoresView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1188">
+          <caret line="121" column="5" selection-start-line="121" selection-start-column="5" selection-end-line="121" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="94" column="20" selection-start-line="94" selection-start-column="20" selection-end-line="94" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/VAADIN/themes/mytheme/mytheme.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="339">
+          <caret line="95" column="3" selection-start-line="95" selection-start-column="3" selection-end-line="95" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/icarus/ligabasquetbol/vistas/ListEquiposView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="75" column="37" selection-start-line="75" selection-start-column="37" selection-end-line="75" selection-end-column="37" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

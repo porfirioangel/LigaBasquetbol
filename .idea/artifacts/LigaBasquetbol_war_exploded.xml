@@ -25,6 +25,7 @@
           <element id="library" level="project" name="Maven: de.steinwedel.vaadin.addon:messagebox:4.0.21" />
           <element id="library" level="project" name="Maven: javax.mail:mail:1.4.7" />
           <element id="library" level="project" name="Maven: javax.activation:activation:1.1" />
+          <element id="library" level="project" name="Maven: org.vaadin.addons:border-layout-addon:0.8" />
         </element>
       </element>
       <element id="directory" name="META-INF">

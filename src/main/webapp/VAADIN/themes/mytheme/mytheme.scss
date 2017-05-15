@@ -53,16 +53,16 @@
     width: 100% !important;
   }
 
-  .grid-jugadores .v-grid-cell {
+  .grid-list-with-image .v-grid-cell {
     height: 100px;
   }
 
-  .grid-jugadores .v-grid-cell > * {
+  .grid-list-with-image .v-grid-cell > * {
     line-height: 100px;
     vertical-align: middle;
   }
 
-  .grid-jugadores .v-grid-header, .grid-jugadores .v-grid-header * {
+  .grid-list-with-image .v-grid-header, .grid-list-with-image .v-grid-header * {
     height: 50px;
     line-height: 50px;
     vertical-align: middle;
@@ -85,5 +85,13 @@
   .img-logo {
     width: 90%;
     margin: 5%;
+  }
+
+  .color-text-blue {
+    color: #1995F2;
+  }
+
+  .content-section {
+    overflow-y: hidden !important;
   }
 }

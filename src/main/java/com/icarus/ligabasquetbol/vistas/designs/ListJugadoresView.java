@@ -90,7 +90,7 @@ public class ListJugadoresView extends ListJugadoresDesign {
 
     private void loadJugadores() {
         List<Jugador> jugadores = accesoJugador.obtenerTodos();
-        gridJugadores.addStyleName("grid-jugadores");
+        gridJugadores.addStyleName("grid-list-with-image");
         gridJugadores.setItems(jugadores);
         gridJugadores.removeAllColumns();
         gridJugadores.addColumn(jugador ->
