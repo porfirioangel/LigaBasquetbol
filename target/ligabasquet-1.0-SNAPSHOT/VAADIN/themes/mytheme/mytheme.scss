@@ -94,4 +94,31 @@
   .content-section {
     overflow-y: hidden !important;
   }
+
+  .full-width {
+    width: 100%;
+  }
+
+  .window-form {
+    min-width: 600px;
+    max-width: 600px;
+    max-height: 800px !important;
+  }
+
+  .logo-equipo {
+    height: 100px;
+    width: 100px;
+  }
+
+
+  //.form-full-width .v-formlayout-contentcell,
+  //.form-full-width .v-formlayout-contentcell > * {
+  //  width: 100%;
+  //}
+
+  //.no-resizable-equipos {
+  //  width: 700px;
+  //  min-width: 700px;
+  //  max-width: 700px;
+  //}
 }

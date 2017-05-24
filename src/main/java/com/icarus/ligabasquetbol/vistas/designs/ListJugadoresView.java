@@ -3,7 +3,7 @@ package com.icarus.ligabasquetbol.vistas.designs;
 import com.icarus.ligabasquetbol.persistencia.accesodatos.AccesoJugador;
 import com.icarus.ligabasquetbol.persistencia.modelos.Jugador;
 import com.icarus.ligabasquetbol.conectividad.ImageUploader;
-import com.icarus.ligabasquetbol.vistas.UploadFile;
+import com.icarus.ligabasquetbol.vistas.components.UploadFile;
 import com.vaadin.data.Binder;
 import com.vaadin.data.converter.LocalDateToDateConverter;
 import com.vaadin.event.selection.SelectionEvent;

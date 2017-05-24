@@ -10,7 +10,6 @@ public class Entrenador {
     private String telefono;
     private Date fechaNacimiento;
     private String urlFoto;
-    private Equipo equipo;
 
     private Usuario usuario;
 
@@ -73,14 +72,6 @@ public class Entrenador {
         this.urlFoto = urlFoto;
     }
 
-    public Equipo getEquipo() {
-        return equipo;
-    }
-
-    public void setEquipo(Equipo equipo) {
-        this.equipo = equipo;
-    }
-
     public Usuario getUsuario() {
         return usuario;
     }
@@ -91,16 +82,6 @@ public class Entrenador {
 
     @Override
     public String toString() {
-        return "Entrenador{" +
-                "id=" + id +
-                ", nombre='" + nombre + '\'' +
-                ", apPaterno='" + apPaterno + '\'' +
-                ", apMaterno='" + apMaterno + '\'' +
-                ", telefono='" + telefono + '\'' +
-                ", fechaNacimiento=" + fechaNacimiento +
-                ", urlFoto='" + urlFoto + '\'' +
-                ", equipo=" + equipo +
-                ", usuario=" + usuario +
-                '}';
+        return nombre + " " + apPaterno + " " + apMaterno;
     }
 }

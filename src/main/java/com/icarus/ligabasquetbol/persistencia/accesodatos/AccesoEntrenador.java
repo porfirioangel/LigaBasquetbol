@@ -29,6 +29,20 @@ public class AccesoEntrenador {
         return entrenadores;
     }
 
+    public List<Entrenador> obtenerDisponibles() {
+        List<Entrenador> entrenadores = null;
+        SqlSession sesion = ConfigDb.getSqlMapper().openSession();
+        try {
+            entrenadores = sesion.selectList("getEntrenadoresDisponibles");
+        } catch (Exception e) {
+            Notification.show("Error al recuperar la lista de entrenadores ",
+                    e.getCause().getMessage(), Notification.Type.ERROR_MESSAGE);
+        } finally {
+            sesion.close();
+        }
+        return entrenadores;
+    }
+
     public boolean insertar(Entrenador entrenador) {
         boolean ok = false;
         SqlSession sesion = ConfigDb.getSqlMapper().openSession();

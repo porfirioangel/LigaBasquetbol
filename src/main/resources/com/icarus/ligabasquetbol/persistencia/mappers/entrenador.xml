@@ -3,30 +3,36 @@
 <!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD iBatis Mapper 3.0 //EN"
         "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
 
-<mapper namespace="com.porfirioads.persistenciamybatis2.persistencia.modelos">
-    <select id="allEntrenador" resultMap="resultMapEntrenador">
+<mapper namespace="com.icarus.ligabasquetbol.persistencia.modelos">
+    <select id="getEntrenadoresDisponibles" resultMap="resultMapEntrenador">
         SELECT t.id, t.nombre, t.ap_paterno, t.ap_materno, t.telefono,
-        t.fecha_nacimiento, t.url_foto, e.id as equipo_id, e.nombre as
-        nombre_equipo, e.url_logo, u.id as usuario_id, u.email as
+        t.fecha_nacimiento, t.url_foto, u.id as usuario_id, u.email as
         usuario_email, u.password as usuario_password, u.tipo_usuario as
         usuario_tipo, u.clave_verificacion as usuario_clave_verificacion
-        FROM entrenador t
-        LEFT JOIN equipo e ON t.equipo_id = e.id
-        LEFT JOIN usuario u ON t.usuario_id = u.id;
+        FROM entrenador t LEFT JOIN usuario u ON t.usuario_id = u.id
+        LEFT JOIN equipo e ON t.id = e.entrenador_id WHERE e.id IS NULL;
+    </select>
+
+    <select id="allEntrenador" resultMap="resultMapEntrenador">
+        SELECT t.id, t.nombre, t.ap_paterno, t.ap_materno, t.telefono,
+        t.fecha_nacimiento, t.url_foto, u.id as usuario_id, u.email as
+        usuario_email, u.password as usuario_password, u.tipo_usuario as
+        usuario_tipo, u.clave_verificacion as usuario_clave_verificacion
+        FROM entrenador t LEFT JOIN usuario u ON t.usuario_id = u.id;
     </select>
 
     <insert id="insertEntrenador" parameterType="Entrenador">
         INSERT INTO entrenador (nombre, ap_paterno, ap_materno, telefono,
-        fecha_nacimiento, url_foto, equipo_id, usuario_id) VALUES (#{nombre},
+        fecha_nacimiento, url_foto, usuario_id) VALUES (#{nombre},
         #{apPaterno}, #{apMaterno}, #{telefono}, #{fechaNacimiento}, #{urlFoto},
-        #{equipo.id}, #{usuario.id});
+        #{usuario.id});
     </insert>
 
     <update id="updateEntrenador" parameterType="Entrenador">
         UPDATE entrenador SET nombre=#{nombre}, ap_paterno=#{apPaterno},
         ap_materno=#{apMaterno}, telefono=#{telefono},
         fecha_nacimiento=#{fechaNacimiento}, url_foto=#{urlFoto},
-        equipo_id=#{equipo.id}, usuario_id=#{usuario.id} WHERE id=#{id};
+         usuario_id=#{usuario.id} WHERE id=#{id};
     </update>
 
     <delete id="deleteEntrenador">
@@ -41,11 +47,6 @@
         <result property="telefono" column="telefono"/>
         <result property="fechaNacimiento" column="fecha_nacimiento"/>
         <result property="urlFoto" column="url_foto"/>
-        <association property="equipo" javaType="Equipo">
-            <id property="id" column="equipo_id"/>
-            <result property="nombre" column="nombre_equipo"/>
-            <result property="urlLogo" column="url_logo"/>
-        </association>
         <association property="usuario" javaType="Usuario">
             <id property="id" column="usuario_id"/>
             <result property="email" column="usuario_email"/>

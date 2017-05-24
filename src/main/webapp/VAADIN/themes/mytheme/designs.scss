@@ -305,3 +305,91 @@
      }
    }
 
+
+// Styles imported from Tile_Layout.html
+@mixin vaadin-tiles-template {
+     .tiles {
+       padding: $v-unit-size / 6;
+       overflow-y: auto;
+       overflow-x: hidden;
+
+       .padding {
+         padding: $v-unit-size / 3;
+       }
+
+       .padding-top {
+         padding-top: $v-unit-size / 3;
+       }
+
+       .padding-right {
+         padding-right: $v-unit-size / 3;
+       }
+
+       .padding-bottom {
+         padding-bottom: $v-unit-size / 3;
+       }
+
+       .padding-left {
+         padding-left: $v-unit-size / 3;
+       }
+
+       .row {
+         display: -webkit-flex;
+         display: -ms-flexbox;
+         display: flex;
+
+         -webkit-flex-wrap: wrap;
+         -ms-flex-wrap: wrap;
+         flex-wrap: wrap;
+       }
+
+       .tile {
+         float: left;
+         padding: $v-unit-size / 6;
+         display: -webkit-flex;
+         display: -ms-flexbox;
+         display: flex;
+       }
+
+       .title {
+         font-size: $v-font-size;
+         color: $v-focus-color;
+         text-transform: uppercase;
+         margin-bottom: $v-unit-size / 4;
+       }
+
+       .tile-content {
+         background: lighten($v-background-color, 20%);
+         border: valo-border($border: $v-border, $strength: 0.2);
+         font-size: $v-font-size * .9;
+       }
+
+       .full {
+         width: 100%;
+       }
+
+       .two-thirds {
+         width: 66.66%;
+       }
+
+       .half {
+         width: 50%;
+       }
+
+       .third {
+         width: 33.33%;
+       }
+
+       .quarter {
+         width: 25%;
+       }
+
+       // Responsive tile styles
+       &[width-range~="-750px"] {
+         .two-thirds, .half, .third, .quarter {
+           width: 100%;
+         }
+       }
+     }
+   }
+

@@ -4,6 +4,7 @@ public class Equipo {
     private int id;
     private String nombre;
     private String urlLogo;
+    private Entrenador entrenador;
 
     public Equipo() {
     }
@@ -32,12 +33,16 @@ public class Equipo {
         this.urlLogo = urlLogo;
     }
 
+    public Entrenador getEntrenador() {
+        return entrenador;
+    }
+
+    public void setEntrenador(Entrenador entrenador) {
+        this.entrenador = entrenador;
+    }
+
     @Override
     public String toString() {
-        return "Equipo{" +
-                "id=" + id +
-                ", nombre='" + nombre + '\'' +
-                ", urlLogo='" + urlLogo + '\'' +
-                '}';
+        return "NombreEquipo:" + nombre;
     }
 }

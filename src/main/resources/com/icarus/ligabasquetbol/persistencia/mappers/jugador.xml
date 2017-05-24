@@ -3,12 +3,30 @@
 <!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD iBatis Mapper 3.0 //EN"
         "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
 
-<mapper namespace="com.porfirioads.persistenciamybatis2.persistencia.modelos">
+<mapper namespace="com.icarus.ligabasquetbol.persistencia.modelos">
     <select id="allJugador" resultMap="resultMapJugador">
         SELECT j.id, j.nombre, j.ap_paterno, j.ap_materno, j.telefono,
         j.fecha_nacimiento, j.url_foto, e.id as equipo_id, e.nombre as
         nombre_equipo, e.url_logo FROM jugador j LEFT JOIN equipo e ON
         j.equipo_id = e.id ORDER BY j.nombre, j.ap_paterno, j.ap_materno;
+    </select>
+
+    <select id="getJugadoresDisponibles" resultMap="resultMapJugador">
+        SELECT j.id, j.nombre, j.ap_paterno, j.ap_materno, j.telefono,
+        j.fecha_nacimiento, j.url_foto, e.id as equipo_id, e.nombre as
+        nombre_equipo, e.url_logo FROM jugador j LEFT JOIN equipo e ON
+        j.equipo_id = e.id WHERE e.id IS NULL
+        ORDER BY j.nombre, j.ap_paterno, j.ap_materno;
+    </select>
+
+    <select id="getJugadoresDeEquipo" parameterType="Equipo"
+            resultMap="resultMapJugador">
+        SELECT j.id, j.nombre, j.ap_paterno, j.ap_materno, j.telefono,
+        j.fecha_nacimiento, j.url_foto, e.id as equipo_id, e.nombre as
+        nombre_equipo, e.url_logo FROM jugador j LEFT JOIN equipo e ON
+        j.equipo_id = e.id
+        WHERE j.equipo_id = #{id}
+        ORDER BY j.nombre, j.ap_paterno, j.ap_materno;
     </select>
 
     <insert id="insertJugador" parameterType="Jugador">
@@ -23,6 +41,10 @@
         ap_materno=#{apMaterno}, telefono=#{telefono},
         fecha_nacimiento=#{fechaNacimiento}, url_foto=#{urlFoto},
         equipo_id=#{equipo.id} WHERE id=#{id};
+    </update>
+
+    <update id="removeJugadorFromEquipo" parameterType="Equipo">
+        UPDATE jugador SET equipo_id=NULL WHERE equipo_id=#{id};
     </update>
 
     <delete id="deleteJugador">

@@ -1,6 +1,7 @@
 package com.icarus.ligabasquetbol.persistencia.accesodatos;
 
 import com.icarus.ligabasquetbol.persistencia.ConfigDb;
+import com.icarus.ligabasquetbol.persistencia.modelos.Equipo;
 import com.icarus.ligabasquetbol.persistencia.modelos.Jugador;
 import com.vaadin.ui.Notification;
 import org.apache.ibatis.session.SqlSession;
@@ -13,6 +14,34 @@ public class AccesoJugador {
         SqlSession sesion = ConfigDb.getSqlMapper().openSession();
         try {
             jugadores = sesion.selectList("allJugador");
+        } catch (Exception e) {
+            Notification.show("Error al recuperar la lista de jugadores ",
+                    e.getCause().getMessage(), Notification.Type.ERROR_MESSAGE);
+        } finally {
+            sesion.close();
+        }
+        return jugadores;
+    }
+
+    public List<Jugador> obtenerDisponibles() {
+        List<Jugador> jugadores = null;
+        SqlSession sesion = ConfigDb.getSqlMapper().openSession();
+        try {
+            jugadores = sesion.selectList("getJugadoresDisponibles");
+        } catch (Exception e) {
+            Notification.show("Error al recuperar la lista de jugadores ",
+                    e.getCause().getMessage(), Notification.Type.ERROR_MESSAGE);
+        } finally {
+            sesion.close();
+        }
+        return jugadores;
+    }
+
+    public List<Jugador> obtenerMiembros(Equipo equipo) {
+        List<Jugador> jugadores = null;
+        SqlSession sesion = ConfigDb.getSqlMapper().openSession();
+        try {
+            jugadores = sesion.selectList("getJugadoresDeEquipo", equipo);
         } catch (Exception e) {
             Notification.show("Error al recuperar la lista de jugadores ",
                     e.getCause().getMessage(), Notification.Type.ERROR_MESSAGE);
@@ -46,11 +75,28 @@ public class AccesoJugador {
             sesion.commit();
         } catch (Exception e) {
             Notification.show("Error al actualizar el jugador ",
-                    e.getCause().getMessage(), Notification.Type.ERROR_MESSAGE);
+                    e + ">>" + e.getCause().getMessage(), Notification.Type
+                            .ERROR_MESSAGE);
         } finally {
             sesion.close();
         }
         return ok;
+    }
+
+    public int quitarJugadoresDeEquipo(Equipo equipo) {
+        SqlSession sesion = ConfigDb.getSqlMapper().openSession();
+        int actualizados = 0;
+        try {
+            actualizados = sesion.update("removeJugadorFromEquipo", equipo);
+            sesion.commit();
+        } catch (Exception e) {
+            Notification.show("Error al actualizar el jugador ",
+                    e + ">>" + e.getCause().getMessage(), Notification.Type
+                            .ERROR_MESSAGE);
+        } finally {
+            sesion.close();
+        }
+        return actualizados;
     }
 
     public int eliminar(Jugador jugador) {
@@ -67,5 +113,4 @@ public class AccesoJugador {
         }
         return deletes;
     }
-
 }

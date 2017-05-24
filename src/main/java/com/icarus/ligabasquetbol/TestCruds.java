@@ -58,6 +58,7 @@ public class TestCruds {
             equipo = new Equipo();
         equipo.setNombre(equipo.getNombre() + ".");
         equipo.setUrlLogo(equipo.getUrlLogo() + "'");
+        equipo.setEntrenador(new AccesoEntrenador().obtenerTodos().get(0));
         boolean exito = acceso.insertar(equipo);
         System.out.println(">> Insert equipo: " + exito);
         equipos = acceso.obtenerTodos();
@@ -112,7 +113,6 @@ public class TestCruds {
         entrenador.setTelefono(entrenador.getTelefono() + "9");
         entrenador.setFechaNacimiento(Date.valueOf(LocalDate.now()));
         entrenador.setUrlFoto(entrenador.getTelefono() + ".jpg");
-        entrenador.setEquipo(entrenador.getEquipo());
         entrenador.setUsuario(null);
         boolean exito = acceso.insertar(entrenador);
         System.out.println(">> Insert entrenador: " + exito);

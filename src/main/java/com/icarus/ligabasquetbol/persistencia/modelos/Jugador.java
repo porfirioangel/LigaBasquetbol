@@ -81,15 +81,14 @@ public class Jugador {
 
     @Override
     public String toString() {
-        return "Jugador{" +
-                "id=" + id +
-                ", nombre='" + nombre + '\'' +
-                ", apPaterno='" + apPaterno + '\'' +
-                ", apMaterno='" + apMaterno + '\'' +
-                ", telefono='" + telefono + '\'' +
-                ", fechaNacimiento=" + fechaNacimiento +
-                ", urlFoto='" + urlFoto + '\'' +
-                ", equipo=" + equipo +
-                '}';
+        return nombre + " " + apPaterno + " " + apMaterno;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Jugador jugador = (Jugador) o;
+        return id == jugador.id;
     }
 }

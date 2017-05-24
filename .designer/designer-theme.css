@@ -1531,6 +1531,86 @@ div.v-layout.v-horizontal.v-widget {
 	vertical-align: top;
 }
 
+.mytheme .tiles {
+	padding: 6.16667px;
+	overflow-y: auto;
+	overflow-x: hidden;
+}
+
+.mytheme .tiles .padding {
+	padding: 12.33333px;
+}
+
+.mytheme .tiles .padding-top {
+	padding-top: 12.33333px;
+}
+
+.mytheme .tiles .padding-right {
+	padding-right: 12.33333px;
+}
+
+.mytheme .tiles .padding-bottom {
+	padding-bottom: 12.33333px;
+}
+
+.mytheme .tiles .padding-left {
+	padding-left: 12.33333px;
+}
+
+.mytheme .tiles .row {
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-flex-wrap: wrap;
+	-ms-flex-wrap: wrap;
+	flex-wrap: wrap;
+}
+
+.mytheme .tiles .tile {
+	float: left;
+	padding: 6.16667px;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+}
+
+.mytheme .tiles .title {
+	font-size: 16px;
+	color: #197de1;
+	text-transform: uppercase;
+	margin-bottom: 9.25px;
+}
+
+.mytheme .tiles .tile-content {
+	background: white;
+	border: 1px solid #efefef;
+	font-size: 14.4px;
+}
+
+.mytheme .tiles .full {
+	width: 100%;
+}
+
+.mytheme .tiles .two-thirds {
+	width: 66.66%;
+}
+
+.mytheme .tiles .half {
+	width: 50%;
+}
+
+.mytheme .tiles .third {
+	width: 33.33%;
+}
+
+.mytheme .tiles .quarter {
+	width: 25%;
+}
+
+.mytheme .tiles[width-range~="-750px"] .two-thirds, .mytheme .tiles[width-range~="-750px"] .half, .mytheme .tiles[width-range~="-750px"] .third, .mytheme .tiles[width-range~="-750px"] .quarter {
+	width: 100%;
+}
+
 .mytheme .crud-template .top-bar {
 	background: white;
 	color: #197de1;
@@ -12759,4 +12839,8 @@ div.v-layout.v-horizontal.v-widget {
 
 .mytheme .content-section {
 	overflow-y: hidden !important;
+}
+
+.mytheme .form-full-width .v-formlayout-contentcell > * {
+	width: 100%;
 }

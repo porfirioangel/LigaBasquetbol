@@ -3,17 +3,33 @@
 <!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD iBatis Mapper 3.0 //EN"
         "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
 
-<mapper namespace="com.porfirioads.persistenciamybatis2.persistencia.modelos">
+<mapper namespace="com.icarus.ligabasquetbol.persistencia.modelos">
     <select id="allEquipo" resultMap="resultMapEquipo">
-        SELECT id, nombre, url_logo FROM equipo;
+        SELECT e.id, e.nombre, e.url_logo, t.id as e_id, t.nombre as e_nombre,
+        t.ap_paterno as e_ap_paterno, t.ap_materno as e_ap_materno,
+        t.telefono as e_telefono, t.fecha_nacimiento as e_fecha_nacimiento,
+        t.url_foto as e_url_foto FROM equipo e
+        LEFT JOIN entrenador t ON t.id = e.entrenador_id;
+    </select>
+
+    <select id="getEquipoByNombre" parameterType="Equipo"
+            resultMap="resultMapEquipo">
+        SELECT e.id, e.nombre, e.url_logo, t.id as e_id, t.nombre as e_nombre,
+        t.ap_paterno as e_ap_paterno, t.ap_materno as e_ap_materno,
+        t.telefono as e_telefono, t.fecha_nacimiento as e_fecha_nacimiento,
+        t.url_foto as e_url_foto FROM equipo e
+        LEFT JOIN entrenador t ON t.id = e.entrenador_id
+        WHERE e.nombre=#{nombre};
     </select>
 
     <insert id="insertEquipo" parameterType="Equipo">
-        INSERT INTO equipo (nombre, url_logo) VALUES (#{nombre}, #{urlLogo});
+        INSERT INTO equipo (nombre, url_logo, entrenador_id) VALUES (#{nombre},
+        #{urlLogo}, #{entrenador.id});
     </insert>
 
     <update id="updateEquipo" parameterType="Equipo">
-        UPDATE equipo SET nombre=#{nombre}, url_logo=#{urlLogo} WHERE id=#{id};
+        UPDATE equipo SET nombre=#{nombre}, url_logo=#{urlLogo},
+        entrenador_id=#{entrenador.id} WHERE id=#{id};
     </update>
 
     <delete id="deleteEquipo">
@@ -24,5 +40,14 @@
         <id property="id" column="id"/>
         <result property="nombre" column="nombre"/>
         <result property="urlLogo" column="url_logo"/>
+        <association property="entrenador" javaType="Entrenador">
+            <id property="id" column="e_id"/>
+            <result property="nombre" column="e_nombre"/>
+            <result property="apPaterno" column="e_ap_paterno"/>
+            <result property="apMaterno" column="e_ap_materno"/>
+            <result property="telefono" column="e_telefono"/>
+            <result property="fechaNacimiento" column="e_fecha_nacimiento"/>
+            <result property="urlFoto" column="e_url_foto"/>
+        </association>
     </resultMap>
 </mapper>

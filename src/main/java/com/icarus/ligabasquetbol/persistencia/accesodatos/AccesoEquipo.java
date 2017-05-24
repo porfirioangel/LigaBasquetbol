@@ -22,6 +22,23 @@ public class AccesoEquipo {
         return equipos;
     }
 
+    public Equipo obtenerEquipoPorNombre(String nombre) {
+        List<Equipo> equipos = null;
+        SqlSession sesion = ConfigDb.getSqlMapper().openSession();
+        try {
+            Equipo equipo = new Equipo();
+            equipo.setNombre(nombre);
+            equipos = sesion.selectList("getEquipoByNombre", equipo);
+            return equipos.size() > 0 ? equipos.get(0) : null;
+        } catch (Exception e) {
+            Notification.show("Error al recuperar el equipo ",
+                    e.getCause().getMessage(), Notification.Type.ERROR_MESSAGE);
+        } finally {
+            sesion.close();
+        }
+        return null;
+    }
+
     public boolean insertar(Equipo equipo) {
         boolean ok = false;
         SqlSession sesion = ConfigDb.getSqlMapper().openSession();

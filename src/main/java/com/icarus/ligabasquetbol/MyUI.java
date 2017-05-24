@@ -32,7 +32,7 @@ public class MyUI extends UI {
         if (codigoConfirmacion == null) {
             System.out.println(">>> byEmail " + new AccesoUsuario()
                     .getUsuarioByEmail("sank@sank.sank"));
-            TestCruds.test();
+//            TestCruds.test();
             setContent(new AdminDashboardScreen());
         } else {
             confirmarCuenta(codigoConfirmacion);

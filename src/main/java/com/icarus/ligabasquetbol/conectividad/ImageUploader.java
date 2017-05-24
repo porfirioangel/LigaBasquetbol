@@ -23,6 +23,7 @@ public class ImageUploader {
      * @return La respuesta del servidor ante la subida de la imagen.
      */
     public String uploadImage(File imagen) {
+        System.out.println(">>> File: " + imagen.getAbsolutePath());
         String uploadImage = getStringImage(imagen);
         HashMap<String, String> data = new HashMap<>();
         data.put("filename", imagen.getName());
