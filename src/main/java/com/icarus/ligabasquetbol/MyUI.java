@@ -2,14 +2,11 @@ package com.icarus.ligabasquetbol;
 
 import javax.servlet.annotation.WebServlet;
 
-import com.icarus.ligabasquetbol.conectividad.Email;
-import com.icarus.ligabasquetbol.persistencia.accesodatos.AccesoEntrenador;
 import com.icarus.ligabasquetbol.persistencia.accesodatos.AccesoUsuario;
 import com.icarus.ligabasquetbol.vistas.designs.AdminDashboardScreen;
 import com.vaadin.annotations.Theme;
 import com.vaadin.annotations.VaadinServletConfiguration;
 import com.vaadin.annotations.Viewport;
-import com.vaadin.event.dd.acceptcriteria.Not;
 import com.vaadin.server.VaadinRequest;
 import com.vaadin.server.VaadinServlet;
 import com.vaadin.ui.Notification;
@@ -33,6 +30,7 @@ public class MyUI extends UI {
             System.out.println(">>> byEmail " + new AccesoUsuario()
                     .getUsuarioByEmail("sank@sank.sank"));
 //            TestCruds.test();
+            TestCruds.testPartidoCrud();
             setContent(new AdminDashboardScreen());
         } else {
             confirmarCuenta(codigoConfirmacion);

@@ -7,18 +7,13 @@ import com.icarus.ligabasquetbol.persistencia.accesodatos.AccesoJugador;
 import com.icarus.ligabasquetbol.persistencia.modelos.Entrenador;
 import com.icarus.ligabasquetbol.persistencia.modelos.Equipo;
 import com.icarus.ligabasquetbol.persistencia.modelos.Jugador;
-import com.icarus.ligabasquetbol.utils.DataStructureConverter;
 import com.icarus.ligabasquetbol.vistas.components.UploadFile;
 import com.vaadin.data.Binder;
-import com.vaadin.event.selection.MultiSelectionEvent;
-import com.vaadin.event.selection.MultiSelectionListener;
 import com.vaadin.server.FileResource;
 import com.vaadin.ui.*;
 import com.vaadin.ui.themes.ValoTheme;
 
 import java.io.File;
-import java.util.Arrays;
-import java.util.Collections;
 import java.util.Set;
 
 public class FormEquipoWindow extends VerticalLayout {

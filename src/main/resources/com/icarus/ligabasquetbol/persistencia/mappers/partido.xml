@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD iBatis Mapper 3.0 //EN"
+        "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+
+<mapper namespace="com.icarus.ligabasquetbol.persistencia.modelos">
+    <select id="allPartido" resultMap="resultMapPartido">
+        SELECT p.id, p.fecha, p.torneo, p.jornada, p.puntos_e_1, p.puntos_e_2,
+        e1.id AS equipo_1_id, e1.nombre AS equipo_1_nombre,
+        e1.url_logo AS equipo_1_logo,
+        e2.id AS equipo_2_id, e2.nombre AS equipo_2_nombre,
+        e2.url_logo AS equipo_2_logo
+        FROM partido p
+        LEFT JOIN equipo e1 ON e1.id = equipo_1_id
+        LEFT JOIN equipo e2 ON e2.id = equipo_2_id;
+    </select>
+
+    <insert id="insertPartido" parameterType="Partido">
+        INSERT INTO partido (equipo_1_id, equipo_2_id, fecha, torneo, jornada,
+        puntos_e_1, puntos_e_2) VALUES (#{equipo1.id}, #{equipo2.id}, #{fecha},
+        #{torneo}, #{jornada}, #{puntosE1}, #{puntosE2});
+    </insert>
+
+    <update id="updateMarcadorPartido" parameterType="Partido">
+        UPDATE partido SET puntos_e_1=#{puntosE1}, puntos_e_2=#{puntosE2}
+        WHERE id=#{id};
+    </update>
+
+    <delete id="deleteAllPartido">
+        DELETE FROM partido;
+    </delete>
+
+    <resultMap type="Partido" id="resultMapPartido">
+        <id property="id" column="id"/>
+        <result property="fecha" column="fecha"/>
+        <result property="torneo" column="torneo"/>
+        <result property="jornada" column="jornada"/>
+        <result property="puntosE1" column="puntos_e_1"/>
+        <result property="puntosE2" column="puntos_e_2"/>
+        <association property="equipo1" javaType="Equipo">
+            <id property="id" column="equipo_1_id"/>
+            <result property="nombre" column="equipo_1_nombre"/>
+            <result property="urlLogo" column="equipo_1_logo"/>
+        </association>
+        <association property="equipo2" javaType="Equipo">
+            <id property="id" column="equipo_2_id"/>
+            <result property="nombre" column="equipo_2_nombre"/>
+            <result property="urlLogo" column="equipo_2_logo"/>
+        </association>
+    </resultMap>
+</mapper>

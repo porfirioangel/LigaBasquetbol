@@ -1,18 +1,15 @@
 package com.icarus.ligabasquetbol;
 
-import com.icarus.ligabasquetbol.persistencia.accesodatos.AccesoEntrenador;
-import com.icarus.ligabasquetbol.persistencia.accesodatos.AccesoEquipo;
-import com.icarus.ligabasquetbol.persistencia.accesodatos.AccesoJugador;
-import com.icarus.ligabasquetbol.persistencia.accesodatos.AccesoUsuario;
-import com.icarus.ligabasquetbol.persistencia.modelos.Entrenador;
-import com.icarus.ligabasquetbol.persistencia.modelos.Equipo;
-import com.icarus.ligabasquetbol.persistencia.modelos.Jugador;
-import com.icarus.ligabasquetbol.persistencia.modelos.Usuario;
+import com.icarus.ligabasquetbol.persistencia.accesodatos.*;
+import com.icarus.ligabasquetbol.persistencia.modelos.*;
 import com.icarus.ligabasquetbol.utils.GeneradorClaves;
 import com.icarus.ligabasquetbol.utils.Sha1;
 
 import java.sql.Date;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.util.ArrayList;
 import java.util.List;
 
 public class TestCruds {
@@ -123,5 +120,40 @@ public class TestCruds {
         System.out.println(">> Update entrenador: " + exito);
         exito = acceso.eliminar(entrenador) > 0;
         System.out.println(">> Delete entrenador: " + exito);
+    }
+
+    public static void testPartidoCrud() {
+        AccesoEquipo accesoEquipo = new AccesoEquipo();
+        AccesoPartido accesoPartido = new AccesoPartido();
+        List<Partido> partidos = accesoPartido.obtenerTodos();
+        System.out.println(">> Partidos: " + partidos);
+        List<Equipo> equipos = accesoEquipo.obtenerTodos();
+        List<Partido> partidosTest = new ArrayList<>();
+        Partido nuevoPartido = new Partido();
+        nuevoPartido.setEquipo1(equipos.get(0));
+        nuevoPartido.setEquipo2(equipos.get(1));
+        nuevoPartido.setFecha(LocalDateTime.now());
+        nuevoPartido.setJornada("1");
+        nuevoPartido.setTorneo("Apertura");
+        partidosTest.add(nuevoPartido);
+        nuevoPartido = new Partido();
+        nuevoPartido.setEquipo1(equipos.get(1));
+        nuevoPartido.setEquipo2(equipos.get(0));
+        nuevoPartido.setFecha(LocalDateTime.now());
+        nuevoPartido.setJornada("2");
+        nuevoPartido.setTorneo("Clausura");
+        partidosTest.add(nuevoPartido);
+        boolean ok = accesoPartido.insertar(partidosTest);
+        System.out.println(">> Insert partidos: " + ok);
+        partidos = accesoPartido.obtenerTodos();
+        System.out.println(">> Partidos: " + partidos);
+        partidos.get(0).setPuntosE1(15);
+        partidos.get(0).setPuntosE2(19);
+        ok = accesoPartido.actualizarMarcador(partidos.get(0));
+        System.out.println(">> Update partido: " + ok);
+        partidos = accesoPartido.obtenerTodos();
+        System.out.println(">> Partido actualizado: " + partidos.get(0));
+        int vaciados = accesoPartido.vaciarPartidos();
+        System.out.println(">> Partidos vaciados: " + vaciados);
     }
 }

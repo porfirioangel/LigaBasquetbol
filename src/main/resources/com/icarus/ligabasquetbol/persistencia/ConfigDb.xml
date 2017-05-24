@@ -17,6 +17,9 @@
         <typeAlias
                 type="com.icarus.ligabasquetbol.persistencia.modelos.Entrenador"
                 alias="Entrenador"/>
+        <typeAlias
+                type="com.icarus.ligabasquetbol.persistencia.modelos.Partido"
+                alias="Partido"/>
     </typeAliases>
 
     <environments default="mysql">
@@ -37,5 +40,6 @@
         <mapper resource="com/icarus/ligabasquetbol/persistencia/mappers/equipo.xml"/>
         <mapper resource="com/icarus/ligabasquetbol/persistencia/mappers/jugador.xml"/>
         <mapper resource="com/icarus/ligabasquetbol/persistencia/mappers/entrenador.xml"/>
+        <mapper resource="com/icarus/ligabasquetbol/persistencia/mappers/partido.xml"/>
     </mappers>
 </configuration>
