@@ -110,15 +110,23 @@
     width: 100px;
   }
 
+  .grid-list-partidos .v-grid-cell {
+    height: 150px;
+  }
 
-  //.form-full-width .v-formlayout-contentcell,
-  //.form-full-width .v-formlayout-contentcell > * {
-  //  width: 100%;
-  //}
+  .grid-list-partidos .v-grid-cell > span {
+    line-height: 20px;
+    vertical-align: middle;
+  }
 
-  //.no-resizable-equipos {
-  //  width: 700px;
-  //  min-width: 700px;
-  //  max-width: 700px;
-  //}
+  .grid-list-partidos .v-grid-cell > img {
+    line-height: 100px;
+    vertical-align: middle;
+  }
+
+  .grid-list-partidos .v-grid-header, .grid-list-partidos .v-grid-header * {
+    height: 50px;
+    line-height: 50px;
+    vertical-align: middle;
+  }
 }

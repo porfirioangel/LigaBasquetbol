@@ -30,7 +30,7 @@ public class MyUI extends UI {
             System.out.println(">>> byEmail " + new AccesoUsuario()
                     .getUsuarioByEmail("sank@sank.sank"));
 //            TestCruds.test();
-            TestCruds.testPartidoCrud();
+//            TestCruds.testPartidoCrud();
             setContent(new AdminDashboardScreen());
         } else {
             confirmarCuenta(codigoConfirmacion);

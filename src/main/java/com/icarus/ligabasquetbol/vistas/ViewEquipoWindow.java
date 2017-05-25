@@ -23,9 +23,11 @@ public class ViewEquipoWindow extends VerticalLayout {
     private void crearComponentes() {
         tfNombreEquipo = new TextField("Equipo");
         tfNombreEquipo.setValue(equipo.getNombre());
+        tfNombreEquipo.setEnabled(false);
         tfNombreEquipo.setSizeFull();
         tfNombreEntrenador = new TextField("Entrenador");
         tfNombreEntrenador.setValue(equipo.getEntrenador().getNombre());
+        tfNombreEntrenador.setEnabled(false);
         tfNombreEntrenador.setSizeFull();
         listJugadores = new ListSelect<>("Jugadores");
         listJugadores.setItems(accesoJugador.obtenerMiembros(equipo));

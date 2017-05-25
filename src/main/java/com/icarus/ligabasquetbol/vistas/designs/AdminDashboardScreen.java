@@ -1,6 +1,7 @@
 package com.icarus.ligabasquetbol.vistas.designs;
 
 import com.icarus.ligabasquetbol.vistas.ListEquiposView;
+import com.icarus.ligabasquetbol.vistas.ListPartidosView;
 import com.vaadin.ui.Button;
 
 public class AdminDashboardScreen extends AdminDashboardDesign {
@@ -34,7 +35,6 @@ public class AdminDashboardScreen extends AdminDashboardDesign {
             lblTituloVentana.setValue("Equipos");
             contentPanel.removeAllComponents();
             contentPanel.addComponent(new ListEquiposView());
-            contentPanel.addStyleName("no-scrollable-y");
         });
         btnPartidos.addClickListener((Button.ClickListener) event -> {
             btnJugadores.removeStyleName("btn-dash-active");
@@ -43,6 +43,7 @@ public class AdminDashboardScreen extends AdminDashboardDesign {
             btnEquipos.removeStyleName("btn-dash-active");
             lblTituloVentana.setValue("Partidos");
             contentPanel.removeAllComponents();
+            contentPanel.addComponent(new ListPartidosView());
         });
     }
 }
