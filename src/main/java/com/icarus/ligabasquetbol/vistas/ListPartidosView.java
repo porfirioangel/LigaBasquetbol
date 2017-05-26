@@ -15,6 +15,7 @@ import org.vaadin.addon.borderlayout.BorderLayout;
 import org.vaadin.ui.NumberField;
 
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.List;
 
 public class ListPartidosView extends BorderLayout {
@@ -112,11 +113,14 @@ public class ListPartidosView extends BorderLayout {
                             .withAbortButton(ButtonOption.caption("Cancelar"))
                             .withIgnoreButton(
                                     () -> {
-                                        partidos = new GeneracionTorneo(tfNombre
-                                                .getValue(), dfFechaInicio
-                                                .getValue().atTime(15, 0),
-                                                accesoEquipo.obtenerTodos())
-                                                .GenerarTorneo();
+                                        partidos = GeneracionTorneo
+                                                .generarClasificatorio(
+                                                        tfNombre.getValue(),
+                                                        dfFechaInicio.getValue()
+                                                                .atTime(15, 0),
+                                                        accesoEquipo
+                                                                .obtenerTodos()
+                                                );
                                         accesoPartido.insertar(partidos);
                                         removeComponent(Constraint.CENTER);
                                         removeComponent(Constraint.SOUTH);
@@ -139,6 +143,7 @@ public class ListPartidosView extends BorderLayout {
         private Grid<Partido> gridPartidos;
         private Button btnActualizarMarcador;
         private Button btnFinalizarTorneo;
+        private Button btnGenerarSiguienteFase;
         private Partido partido;
 
         public void crearComponentes() {
@@ -150,10 +155,16 @@ public class ListPartidosView extends BorderLayout {
             btnFinalizarTorneo = new Button("Finalizar torneo");
             btnFinalizarTorneo.addStyleName(ValoTheme.BUTTON_DANGER);
             addBtnFinalizarTorneoClickListener();
+            btnGenerarSiguienteFase = new Button("Siguiente fase");
+            btnGenerarSiguienteFase.addStyleName(ValoTheme.BUTTON_FRIENDLY);
+            btnGenerarSiguienteFase.setEnabled(false);
+            addBtnGenerarSiguienteFaseClickListener();
             HorizontalLayout hlBotones = new HorizontalLayout();
-            hlBotones.addComponents(btnActualizarMarcador, btnFinalizarTorneo);
+            hlBotones.addComponents(btnActualizarMarcador, btnFinalizarTorneo,
+                    btnGenerarSiguienteFase);
             addComponent(gridPartidos, Constraint.CENTER);
             addComponent(hlBotones, Constraint.SOUTH);
+            verificarPartidosCompletos();
         }
 
         private void construirGridPartidos() {
@@ -174,7 +185,8 @@ public class ListPartidosView extends BorderLayout {
             gridPartidos.addColumn(partido -> "<span>"
                             + partido.getFecha().format(DateTimeFormatter
                             .ofPattern("dd/MM/yyyy HH:mm"))
-                            + "</span>",
+                            + "</span>"
+                            + "<br>(" + partido.getJornada() + ")",
                     new HtmlRenderer()).setCaption("Fecha");
             gridPartidos.addColumn(partido -> "<strong>" + partido
                             .getEquipo2().getNombre() +
@@ -231,13 +243,13 @@ public class ListPartidosView extends BorderLayout {
                 NumberField nfPuntosE1 = new NumberField("Puntos equipo 1:");
                 flMarcador.setMargin(true);
                 nfPuntosE1.setDecimalAllowed(false);
-                nfPuntosE1.setMinValue(0);
+                nfPuntosE1.setMinValue(1);
                 nfPuntosE1.setMaxValue(1000);
                 nfPuntosE1.setGroupingSeparator('0');
                 nfPuntosE1.setSizeFull();
                 NumberField nfPuntosE2 = new NumberField("Puntos equipo 2:");
                 nfPuntosE2.setDecimalAllowed(false);
-                nfPuntosE2.setMinValue(0);
+                nfPuntosE2.setMinValue(1);
                 nfPuntosE2.setMaxValue(1000);
                 nfPuntosE2.setSizeFull();
                 nfPuntosE2.setGroupingSeparator('0');
@@ -255,6 +267,7 @@ public class ListPartidosView extends BorderLayout {
                                     Notification.Type.TRAY_NOTIFICATION);
                             gridPartidos.setItems(accesoPartido.obtenerTodos());
                             ((Window) flMarcador.getParent()).close();
+                            verificarPartidosCompletos();
                         }
                     } else {
                         Notification.show("Error", "No puedes dejar campos " +
@@ -272,6 +285,54 @@ public class ListPartidosView extends BorderLayout {
                 equipoForm.setWidth("400px");
                 UI.getCurrent().addWindow(equipoForm);
             });
+        }
+
+        private void addBtnGenerarSiguienteFaseClickListener() {
+            btnGenerarSiguienteFase.addClickListener((Button.ClickListener) event -> {
+                String ultimaJornada = partidos.get(partidos.size() - 1)
+                        .getJornada();
+                System.out.println(">> UltimaJornada: " + partidos
+                        .get(partidos.size() - 1).getJornada());
+                List<Partido> ultimosPartidos = new ArrayList<>();
+                for (Partido partido : partidos) {
+                    System.out.println(">> JornadaP: " + partido.getJornada());
+                    if (partido.getJornada().equals(ultimaJornada)) {
+                        ultimosPartidos.add(partido);
+                    }
+                }
+                List<Partido> nuevosPartidos = GeneracionTorneo
+                        .generarSiguienteFase(ultimosPartidos);
+                if (nuevosPartidos == null) {
+                    Partido ultimo = ultimosPartidos.get(0);
+                    String message;
+                    if(ultimo.getPuntosE1() > ultimo.getPuntosE2()) {
+                        message = "El ganador fue " + ultimo.getEquipo1();
+                    } else if(ultimo.getPuntosE2() > ultimo.getPuntosE1()) {
+                        message = "El ganador fue " + ultimo.getEquipo2();
+                    } else {
+                        message = "El resultado fue un empate";
+                    }
+                    MessageBox.create()
+                            .withCaption("Torneo finalizado")
+                            .withMessage(message).open();
+                } else {
+                    accesoPartido.insertar(GeneracionTorneo.generarSiguienteFase
+                            (ultimosPartidos));
+                    gridPartidos.setItems(accesoPartido.obtenerTodos());
+                    btnGenerarSiguienteFase.setEnabled(false);
+                }
+            });
+        }
+
+        private void verificarPartidosCompletos() {
+            partidos = accesoPartido.obtenerTodos();
+            for (Partido partido : partidos) {
+                if (partido.getPuntosE1() == 0 && partido.getPuntosE2() == 0) {
+                    btnGenerarSiguienteFase.setEnabled(false);
+                    return;
+                }
+            }
+            btnGenerarSiguienteFase.setEnabled(true);
         }
     }
 }
