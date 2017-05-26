@@ -102,6 +102,11 @@
             <artifactId>numberfield</artifactId>
             <version>0.2.0</version>
         </dependency>
+        <dependency>
+            <groupId>com.vaadin</groupId>
+            <artifactId>vaadin-charts</artifactId>
+            <version>4.0.0</version>
+        </dependency>
     </dependencies>
 
     <build>

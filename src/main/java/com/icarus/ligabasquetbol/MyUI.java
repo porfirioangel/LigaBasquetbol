@@ -32,6 +32,7 @@ public class MyUI extends UI {
 //            TestCruds.test();
 //            TestCruds.testPartidoCrud();
             setContent(new UsuarioDashboardScreen());
+//            setContent(new AdminDashboardScreen());
         } else {
             confirmarCuenta(codigoConfirmacion);
         }

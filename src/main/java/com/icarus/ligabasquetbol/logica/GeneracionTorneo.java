@@ -138,7 +138,7 @@ public class GeneracionTorneo {
         return nuevosPartidos;
     }
 
-    private static List<EquipoPuntos> ordenarEquipos(List<Partido> partidos) {
+    public static List<EquipoPuntos> ordenarEquipos(List<Partido> partidos) {
         Map<Equipo, EquipoPuntos> mapaEquipos = new HashMap<>();
         Equipo equipo1;
         Equipo equipo2;
@@ -161,12 +161,16 @@ public class GeneracionTorneo {
                 System.out.println(">> added equipo: " + equipo1);
                 mapaEquipos.put(equipo1, new EquipoPuntos(equipo1));
             }
-            mapaEquipos.get(equipo1).puntos += puntosE1;
+            mapaEquipos.get(equipo1).setPuntos(mapaEquipos.get(equipo1)
+                    .getPuntos() + puntosE1);
+//            mapaEquipos.get(equipo1).getPuntos() += puntosE1;
             if (!mapaEquipos.containsKey(equipo2)) {
                 System.out.println(">> added equipo: " + equipo2);
                 mapaEquipos.put(equipo2, new EquipoPuntos(equipo2));
             }
-            mapaEquipos.get(equipo2).puntos += puntosE2;
+            mapaEquipos.get(equipo2).setPuntos(mapaEquipos.get(equipo2)
+                    .getPuntos() + puntosE2);
+//            mapaEquipos.get(equipo2).puntos += puntosE2;
         }
         List<EquipoPuntos> equiposOrdenados = new ArrayList<>();
         for (Equipo ep : mapaEquipos.keySet()) {
@@ -174,35 +178,5 @@ public class GeneracionTorneo {
         }
         Collections.sort(equiposOrdenados);
         return equiposOrdenados;
-    }
-
-    private static class EquipoPuntos implements Comparable<EquipoPuntos> {
-        private Equipo equipo;
-        private int puntos;
-
-        public EquipoPuntos(Equipo equipo) {
-            this.equipo = equipo;
-        }
-
-        public Equipo getEquipo() {
-            return equipo;
-        }
-
-        public void setEquipo(Equipo equipo) {
-            this.equipo = equipo;
-        }
-
-        public int getPuntos() {
-            return puntos;
-        }
-
-        public void setPuntos(int puntos) {
-            this.puntos = puntos;
-        }
-
-        @Override
-        public int compareTo(EquipoPuntos o) {
-            return -(puntos - o.puntos);
-        }
     }
 }
