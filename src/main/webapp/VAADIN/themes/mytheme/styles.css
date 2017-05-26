@@ -12897,3 +12897,20 @@ div.v-layout.v-horizontal.v-widget {
 	line-height: 50px;
 	vertical-align: middle;
 }
+
+.mytheme .dashboard-purple {
+	background-color: #8219E3 !important;
+}
+
+.mytheme .dashboard-purple .borderless {
+	background-color: #7606DD;
+	border-radius: 0;
+}
+
+.mytheme .dashboard-purple .navigation {
+	border: 0;
+}
+
+.mytheme .dashboard-purple .borderless:hover {
+	background-color: #53059A !important;
+}

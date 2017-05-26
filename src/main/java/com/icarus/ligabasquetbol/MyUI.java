@@ -4,6 +4,8 @@ import javax.servlet.annotation.WebServlet;
 
 import com.icarus.ligabasquetbol.persistencia.accesodatos.AccesoUsuario;
 import com.icarus.ligabasquetbol.vistas.LoginScreen;
+import com.icarus.ligabasquetbol.vistas.designs.AdminDashboardScreen;
+import com.icarus.ligabasquetbol.vistas.designs.UsuarioDashboardScreen;
 import com.vaadin.annotations.Theme;
 import com.vaadin.annotations.VaadinServletConfiguration;
 import com.vaadin.annotations.Viewport;
@@ -29,7 +31,7 @@ public class MyUI extends UI {
         if (codigoConfirmacion == null) {
 //            TestCruds.test();
 //            TestCruds.testPartidoCrud();
-            setContent(new LoginScreen());
+            setContent(new UsuarioDashboardScreen());
         } else {
             confirmarCuenta(codigoConfirmacion);
         }

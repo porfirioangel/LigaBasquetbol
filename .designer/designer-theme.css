@@ -12841,6 +12841,54 @@ div.v-layout.v-horizontal.v-widget {
 	overflow-y: hidden !important;
 }
 
-.mytheme .form-full-width .v-formlayout-contentcell > * {
+.mytheme .full-width {
 	width: 100%;
+}
+
+.mytheme .window-form {
+	min-width: 600px;
+	max-width: 600px;
+	max-height: 800px !important;
+}
+
+.mytheme .logo-equipo {
+	height: 100px;
+	width: 100px;
+}
+
+.mytheme .grid-list-partidos .v-grid-cell {
+	height: 180px;
+}
+
+.mytheme .grid-list-partidos .v-grid-cell > strong {
+	line-height: 20px !important;
+	vertical-align: middle;
+}
+
+.mytheme .grid-list-partidos .v-grid-cell > img {
+	line-height: 100px;
+	vertical-align: middle;
+}
+
+.mytheme .grid-list-partidos .v-grid-header, .mytheme .grid-list-partidos .v-grid-header * {
+	height: 50px !important;
+	line-height: 50px;
+	vertical-align: middle;
+}
+
+.mytheme .dashboard-purple {
+	background-color: #8219E3 !important;
+}
+
+.mytheme .dashboard-purple .borderless {
+	background-color: #7606DD;
+	border-radius: 0;
+}
+
+.mytheme .dashboard-purple .navigation {
+	border: 0;
+}
+
+.mytheme .dashboard-purple .borderless:hover {
+	background-color: #53059A !important;
 }
