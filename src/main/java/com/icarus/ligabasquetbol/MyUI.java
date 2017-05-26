@@ -3,7 +3,7 @@ package com.icarus.ligabasquetbol;
 import javax.servlet.annotation.WebServlet;
 
 import com.icarus.ligabasquetbol.persistencia.accesodatos.AccesoUsuario;
-import com.icarus.ligabasquetbol.vistas.designs.AdminDashboardScreen;
+import com.icarus.ligabasquetbol.vistas.LoginScreen;
 import com.vaadin.annotations.Theme;
 import com.vaadin.annotations.VaadinServletConfiguration;
 import com.vaadin.annotations.Viewport;
@@ -27,11 +27,9 @@ public class MyUI extends UI {
     protected void init(VaadinRequest vaadinRequest) {
         String codigoConfirmacion = vaadinRequest.getParameter("confirmacion");
         if (codigoConfirmacion == null) {
-            System.out.println(">>> byEmail " + new AccesoUsuario()
-                    .getUsuarioByEmail("sank@sank.sank"));
 //            TestCruds.test();
 //            TestCruds.testPartidoCrud();
-            setContent(new AdminDashboardScreen());
+            setContent(new LoginScreen());
         } else {
             confirmarCuenta(codigoConfirmacion);
         }
