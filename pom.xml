@@ -97,6 +97,11 @@
             <artifactId>border-layout-addon</artifactId>
             <version>0.8</version>
         </dependency>
+        <dependency>
+            <groupId>org.vaadin.ui</groupId>
+            <artifactId>numberfield</artifactId>
+            <version>0.2.0</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -117,6 +122,18 @@
                 <groupId>com.vaadin</groupId>
                 <artifactId>vaadin-maven-plugin</artifactId>
                 <version>${vaadin.plugin.version}</version>
+                <!-- Inicio de configuración para compilación del widgetset -->
+                <configuration>
+                    <extraJvmArgs>-Xmx512M -Xss1024k</extraJvmArgs>
+                    <webappDirectory>
+                        ${basedir}/target/classes/VAADIN/widgetsets
+                    </webappDirectory>
+                    <draftCompile>false</draftCompile>
+                    <compileReport>false</compileReport>
+                    <style>OBF</style>
+                    <strict>true</strict>
+                </configuration>
+                <!-- Fin de configuración para compilación del widgetset -->
                 <executions>
                     <execution>
                         <goals>

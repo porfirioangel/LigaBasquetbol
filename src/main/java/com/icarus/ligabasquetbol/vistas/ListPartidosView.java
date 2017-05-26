@@ -5,12 +5,14 @@ import com.icarus.ligabasquetbol.persistencia.accesodatos.AccesoEquipo;
 import com.icarus.ligabasquetbol.persistencia.accesodatos.AccesoPartido;
 import com.icarus.ligabasquetbol.persistencia.modelos.Equipo;
 import com.icarus.ligabasquetbol.persistencia.modelos.Partido;
+import com.vaadin.event.selection.SelectionListener;
 import com.vaadin.ui.*;
 import com.vaadin.ui.renderers.HtmlRenderer;
 import com.vaadin.ui.themes.ValoTheme;
 import de.steinwedel.messagebox.ButtonOption;
 import de.steinwedel.messagebox.MessageBox;
 import org.vaadin.addon.borderlayout.BorderLayout;
+import org.vaadin.ui.NumberField;
 
 import java.time.format.DateTimeFormatter;
 import java.util.List;
@@ -137,12 +139,14 @@ public class ListPartidosView extends BorderLayout {
         private Grid<Partido> gridPartidos;
         private Button btnActualizarMarcador;
         private Button btnFinalizarTorneo;
+        private Partido partido;
 
         public void crearComponentes() {
             construirGridPartidos();
             btnActualizarMarcador = new Button("Actualizar marcador");
             btnActualizarMarcador.addStyleName(ValoTheme.BUTTON_PRIMARY);
             btnActualizarMarcador.setEnabled(false);
+            addBtnActualizarMarcadorClickListener();
             btnFinalizarTorneo = new Button("Finalizar torneo");
             btnFinalizarTorneo.addStyleName(ValoTheme.BUTTON_DANGER);
             addBtnFinalizarTorneoClickListener();
@@ -162,7 +166,9 @@ public class ListPartidosView extends BorderLayout {
                             "</strong><br>" +
                             "<img src=\"http://localhost/uploads/"
                             + partido.getEquipo1().getUrlLogo()
-                            + "\" style=\"height: 100px; width: 100px;\" />",
+                            + "\" style=\"height: 100px; width: 100px;\" />"
+                            + "<br><strong>" + partido.getPuntosE1()
+                            + "</strong><br>",
                     new HtmlRenderer()).setCaption("Equipo 1");
             ((Grid.Column) gridPartidos.getColumns().get(0)).setWidth(300);
             gridPartidos.addColumn(partido -> "<span>"
@@ -175,12 +181,27 @@ public class ListPartidosView extends BorderLayout {
                             "</strong><br>" +
                             "<img src=\"http://localhost/uploads/"
                             + partido.getEquipo2().getUrlLogo()
-                            + "\" style=\"height: 100px; width: 100px;\" />",
+                            + "\" style=\"height: 100px; width: 100px;\" />"
+                            + "<br><strong>" + partido.getPuntosE2()
+                            + "</strong><br>",
                     new HtmlRenderer()).setCaption("Equipo 2");
             ((Grid.Column) gridPartidos.getColumns().get(2)).setWidth(300);
             gridPartidos.setSelectionMode(Grid.SelectionMode.SINGLE);
             gridPartidos.setResponsive(true);
             gridPartidos.setSizeFull();
+            addGridPartidosSelectionListener();
+        }
+
+        private void addGridPartidosSelectionListener() {
+            gridPartidos.addSelectionListener((SelectionListener<Partido>) event -> {
+                if (!event.getAllSelectedItems().isEmpty()) {
+                    btnActualizarMarcador.setEnabled(true);
+                    partido = event.getFirstSelectedItem().get();
+                } else {
+                    btnActualizarMarcador.setEnabled(false);
+                    partido = null;
+                }
+            });
         }
 
         private void addBtnFinalizarTorneoClickListener() {
@@ -201,6 +222,55 @@ public class ListPartidosView extends BorderLayout {
                                 ButtonOption.focus(), ButtonOption.icon(null)
                         )
                         .open();
+            });
+        }
+
+        private void addBtnActualizarMarcadorClickListener() {
+            btnActualizarMarcador.addClickListener((Button.ClickListener) event -> {
+                FormLayout flMarcador = new FormLayout();
+                NumberField nfPuntosE1 = new NumberField("Puntos equipo 1:");
+                flMarcador.setMargin(true);
+                nfPuntosE1.setDecimalAllowed(false);
+                nfPuntosE1.setMinValue(0);
+                nfPuntosE1.setMaxValue(1000);
+                nfPuntosE1.setGroupingSeparator('0');
+                nfPuntosE1.setSizeFull();
+                NumberField nfPuntosE2 = new NumberField("Puntos equipo 2:");
+                nfPuntosE2.setDecimalAllowed(false);
+                nfPuntosE2.setMinValue(0);
+                nfPuntosE2.setMaxValue(1000);
+                nfPuntosE2.setSizeFull();
+                nfPuntosE2.setGroupingSeparator('0');
+                Button btnGuardarMarcador = new Button("Guardar");
+                btnGuardarMarcador.addStyleName(ValoTheme.BUTTON_PRIMARY);
+                btnGuardarMarcador.setSizeFull();
+                btnGuardarMarcador.addClickListener((Button.ClickListener) event1 -> {
+                    if (!nfPuntosE1.isEmpty() && !nfPuntosE2.isEmpty()) {
+                        partido.setPuntosE1(Integer.parseInt(nfPuntosE1
+                                .getValue()));
+                        partido.setPuntosE2(Integer.parseInt(nfPuntosE2
+                                .getValue()));
+                        if (accesoPartido.actualizarMarcador(partido)) {
+                            Notification.show("Marcador actualizado",
+                                    Notification.Type.TRAY_NOTIFICATION);
+                            gridPartidos.setItems(accesoPartido.obtenerTodos());
+                            ((Window) flMarcador.getParent()).close();
+                        }
+                    } else {
+                        Notification.show("Error", "No puedes dejar campos " +
+                                "vacíos", Notification.Type.ERROR_MESSAGE);
+                    }
+                });
+                flMarcador.addComponents(nfPuntosE1, nfPuntosE2,
+                        btnGuardarMarcador);
+                Window equipoForm = new Window("Marcador del partido",
+                        flMarcador);
+                equipoForm.setSizeUndefined();
+                equipoForm.setModal(true);
+                equipoForm.setResizable(false);
+                equipoForm.addStyleName("window-form");
+                equipoForm.setWidth("400px");
+                UI.getCurrent().addWindow(equipoForm);
             });
         }
     }

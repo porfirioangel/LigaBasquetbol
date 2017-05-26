@@ -111,11 +111,11 @@
   }
 
   .grid-list-partidos .v-grid-cell {
-    height: 150px;
+    height: 180px;
   }
 
-  .grid-list-partidos .v-grid-cell > span {
-    line-height: 20px;
+  .grid-list-partidos .v-grid-cell > strong {
+    line-height: 20px !important;
     vertical-align: middle;
   }
 
@@ -125,7 +125,7 @@
   }
 
   .grid-list-partidos .v-grid-header, .grid-list-partidos .v-grid-header * {
-    height: 50px;
+    height: 50px !important;
     line-height: 50px;
     vertical-align: middle;
   }
