@@ -25,6 +25,7 @@ public class UsuarioDashboardDesign extends HorizontalLayout {
     protected Button btnPosiciones;
     protected Button btnPartidosFinalizados;
     protected Button btnPartidosProximos;
+    protected Button btnIniciarSesion;
     protected Label lblTituloVentana;
     protected CssLayout content;
     protected CssLayout contentPanel;

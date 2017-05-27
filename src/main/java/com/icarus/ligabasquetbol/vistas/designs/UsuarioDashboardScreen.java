@@ -2,6 +2,7 @@ package com.icarus.ligabasquetbol.vistas.designs;
 
 import com.icarus.ligabasquetbol.vistas.*;
 import com.vaadin.ui.Button;
+import com.vaadin.ui.UI;
 
 public class UsuarioDashboardScreen extends UsuarioDashboardDesign {
     public UsuarioDashboardScreen() {
@@ -31,6 +32,9 @@ public class UsuarioDashboardScreen extends UsuarioDashboardDesign {
             lblTituloVentana.setValue("Partidos Próximos");
             contentPanel.removeAllComponents();
             contentPanel.addComponent(new PartidosProximosView());
+        });
+        btnIniciarSesion.addClickListener((Button.ClickListener) event -> {
+            UI.getCurrent().setContent(new LoginScreen());
         });
     }
 }

@@ -158,19 +158,16 @@ public class GeneracionTorneo {
                 puntosE2 = 2;
             }
             if (!mapaEquipos.containsKey(equipo1)) {
-                System.out.println(">> added equipo: " + equipo1);
                 mapaEquipos.put(equipo1, new EquipoPuntos(equipo1));
             }
             mapaEquipos.get(equipo1).setPuntos(mapaEquipos.get(equipo1)
                     .getPuntos() + puntosE1);
-//            mapaEquipos.get(equipo1).getPuntos() += puntosE1;
             if (!mapaEquipos.containsKey(equipo2)) {
                 System.out.println(">> added equipo: " + equipo2);
                 mapaEquipos.put(equipo2, new EquipoPuntos(equipo2));
             }
             mapaEquipos.get(equipo2).setPuntos(mapaEquipos.get(equipo2)
                     .getPuntos() + puntosE2);
-//            mapaEquipos.get(equipo2).puntos += puntosE2;
         }
         List<EquipoPuntos> equiposOrdenados = new ArrayList<>();
         for (Equipo ep : mapaEquipos.keySet()) {

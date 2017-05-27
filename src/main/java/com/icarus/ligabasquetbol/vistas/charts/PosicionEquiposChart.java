@@ -42,14 +42,6 @@ public class PosicionEquiposChart {
         return nombresEquipos;
     }
 
-//    private static Number[] getPuntosEquipo(List<EquipoPuntos> equiposPuntos) {
-//        Number[] puntosEquipos = new Number[equiposPuntos.size()];
-//        for (int i = 0; i < puntosEquipos.length; i++) {
-//            puntosEquipos[i] = equiposPuntos.get(i).getPuntos();
-//        }
-//        return puntosEquipos;
-//    }
-
     private static class GeneradorSeries {
         private DataSeries serieCalificados;
         private DataSeries serieDescalificados;
