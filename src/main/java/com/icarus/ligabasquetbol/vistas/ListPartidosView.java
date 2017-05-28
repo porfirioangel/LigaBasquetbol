@@ -6,6 +6,8 @@ import com.icarus.ligabasquetbol.persistencia.accesodatos.AccesoPartido;
 import com.icarus.ligabasquetbol.persistencia.modelos.Equipo;
 import com.icarus.ligabasquetbol.persistencia.modelos.Partido;
 import com.vaadin.event.selection.SelectionListener;
+import com.vaadin.server.ExternalResource;
+import com.vaadin.shared.ui.BorderStyle;
 import com.vaadin.ui.*;
 import com.vaadin.ui.renderers.HtmlRenderer;
 import com.vaadin.ui.themes.ValoTheme;
@@ -144,6 +146,7 @@ public class ListPartidosView extends BorderLayout {
         private Button btnActualizarMarcador;
         private Button btnFinalizarTorneo;
         private Button btnGenerarSiguienteFase;
+        private Link linkReporte;
         private Partido partido;
 
         public void crearComponentes() {
@@ -162,6 +165,15 @@ public class ListPartidosView extends BorderLayout {
             HorizontalLayout hlBotones = new HorizontalLayout();
             hlBotones.addComponents(btnActualizarMarcador, btnFinalizarTorneo,
                     btnGenerarSiguienteFase);
+            linkReporte = new Link("Reporte de partidos",
+                    new ExternalResource("http://localhost:8080/birt2/" +
+                            "preview?__report=reportes%2F" +
+                            "tabla_puntuaciones.rptdesign&__format=pdf"));
+            linkReporte.setTargetName("_blank");
+            linkReporte.setTargetBorder(BorderStyle.NONE);
+            linkReporte.setTargetHeight(800);
+            linkReporte.setTargetWidth(500);
+            addComponent(linkReporte, Constraint.NORTH);
             addComponent(gridPartidos, Constraint.CENTER);
             addComponent(hlBotones, Constraint.SOUTH);
             verificarPartidosCompletos();
