@@ -13,7 +13,7 @@ import java.util.Map;
  * Se encarga de subir un archivo de imagen a un servidor de php.
  */
 public class ImageUploader {
-    private final String url = "http://localhost/upload_image.php";
+    private final String url = "http://localhost/liga_basquet/upload_image.php";
 
     /**
      * Envía la imagen pasada como parámetro al servidor por medio de una

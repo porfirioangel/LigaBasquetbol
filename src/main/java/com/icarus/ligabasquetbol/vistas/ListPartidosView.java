@@ -95,7 +95,7 @@ public class ListPartidosView extends BorderLayout {
             gridEquipos.addStyleName("grid-list-with-image");
             gridEquipos.setItems(accesoEquipo.obtenerTodos());
             gridEquipos.removeAllColumns();
-            gridEquipos.addColumn(equipo -> "<img src=\"http://localhost/uploads/"
+            gridEquipos.addColumn(equipo -> "<img src=\"http://148.217.200.108/liga_basquet/uploads/"
                     + equipo.getUrlLogo() + "\" style=\"height: 100px; " +
                     "width: 100px;\" />", new HtmlRenderer())
                     .setCaption("Logotipo");
@@ -166,7 +166,7 @@ public class ListPartidosView extends BorderLayout {
             hlBotones.addComponents(btnActualizarMarcador, btnFinalizarTorneo,
                     btnGenerarSiguienteFase);
             linkReporte = new Link("Reporte de partidos",
-                    new ExternalResource("http://localhost:8080/birt2/" +
+                    new ExternalResource("http://148.217.200.108:8082/birt/" +
                             "preview?__report=reportes%2F" +
                             "tabla_puntuaciones.rptdesign&__format=pdf"));
             linkReporte.setTargetName("_blank");
@@ -187,7 +187,7 @@ public class ListPartidosView extends BorderLayout {
             gridPartidos.addColumn(partido -> "<strong>" + partido
                             .getEquipo1().getNombre() +
                             "</strong><br>" +
-                            "<img src=\"http://localhost/uploads/"
+                            "<img src=\"http://148.217.200.108/liga_basquet/uploads/"
                             + partido.getEquipo1().getUrlLogo()
                             + "\" style=\"height: 100px; width: 100px;\" />"
                             + "<br><strong>" + partido.getPuntosE1()
@@ -203,7 +203,7 @@ public class ListPartidosView extends BorderLayout {
             gridPartidos.addColumn(partido -> "<strong>" + partido
                             .getEquipo2().getNombre() +
                             "</strong><br>" +
-                            "<img src=\"http://localhost/uploads/"
+                            "<img src=\"http://148.217.200.108/liga_basquet/uploads/"
                             + partido.getEquipo2().getUrlLogo()
                             + "\" style=\"height: 100px; width: 100px;\" />"
                             + "<br><strong>" + partido.getPuntosE2()

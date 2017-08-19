@@ -102,7 +102,7 @@ public class ListEntrenadoresView extends ListEntrenadoresDesign {
         gridEntrenadores.setItems(entrenadores);
         gridEntrenadores.removeAllColumns();
         gridEntrenadores.addColumn(entrenador ->
-                        "<img src=\"http://localhost/uploads/"
+                        "<img src=\"http://148.217.200.108/liga_basquet/uploads/"
                                 + ((Entrenador) entrenador).getUrlFoto() + "\""
                                 + "style=\"height: 100px; width: 100px;\" />",
                 new HtmlRenderer()).setCaption("Fotografía");

@@ -94,7 +94,7 @@ public class ListJugadoresView extends ListJugadoresDesign {
         gridJugadores.setItems(jugadores);
         gridJugadores.removeAllColumns();
         gridJugadores.addColumn(jugador ->
-                        "<img src=\"http://localhost/uploads/"
+                        "<img src=\"http://148.217.200.108/liga_basquet/uploads/"
                                 + ((Jugador) jugador).getUrlFoto() + "\""
                                 + "style=\"height: 100px; width: 100px;\" />",
                 new HtmlRenderer()).setCaption("Fotografía");

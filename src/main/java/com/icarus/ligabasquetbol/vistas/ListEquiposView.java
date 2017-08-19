@@ -71,7 +71,7 @@ public class ListEquiposView extends BorderLayout {
         gridEquipos.addStyleName("grid-list-with-image");
         gridEquipos.setItems(accesoEquipo.obtenerTodos());
         gridEquipos.removeAllColumns();
-        gridEquipos.addColumn(equipo -> "<img src=\"http://localhost/uploads/"
+        gridEquipos.addColumn(equipo -> "<img src=\"http://148.217.200.108/liga_basquet/uploads/"
                 + equipo.getUrlLogo() + "\" style=\"height: 100px; " +
                 "width: 100px;\" />", new HtmlRenderer())
                 .setCaption("Logotipo");

@@ -43,7 +43,7 @@ public class PartidosFinalizadosView extends BorderLayout {
         gridPartidos.addColumn(partido -> "<strong>" + partido
                         .getEquipo1().getNombre() +
                         "</strong><br>" +
-                        "<img src=\"http://localhost/uploads/"
+                        "<img src=\"http://148.217.200.108/liga_basquet/uploads/"
                         + partido.getEquipo1().getUrlLogo()
                         + "\" style=\"height: 100px; width: 100px;\" />"
                         + "<br><strong>" + partido.getPuntosE1()
@@ -59,7 +59,7 @@ public class PartidosFinalizadosView extends BorderLayout {
         gridPartidos.addColumn(partido -> "<strong>" + partido
                         .getEquipo2().getNombre() +
                         "</strong><br>" +
-                        "<img src=\"http://localhost/uploads/"
+                        "<img src=\"http://148.217.200.108/liga_basquet/uploads/"
                         + partido.getEquipo2().getUrlLogo()
                         + "\" style=\"height: 100px; width: 100px;\" />"
                         + "<br><strong>" + partido.getPuntosE2()

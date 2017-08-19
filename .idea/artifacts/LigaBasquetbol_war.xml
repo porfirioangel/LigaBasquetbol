@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="war" name="LigaBasquetbol:war">
-    <output-path>$PROJECT_DIR$/target</output-path>
-    <root id="archive" name="ligabasquet-1.0-SNAPSHOT.war">
-      <element id="artifact" artifact-name="LigaBasquetbol:war exploded" />
-    </root>
-  </artifact>
-</component>
